@@ -90,7 +90,7 @@
   }
   spawn(el,s,time){let job=this.pool[el].pop();if(!job)job=el===3?this.makeWave():this.makeEarth();Object.assign(job,{birth:time,life:el===3?1.5:1.4,x:s.x,z:s.z,dx:s.dx,dz:s.dz,power:s.power,range:s.range,tier:s.tier,y:s.y});job.root.visible=true;this.rootAt(job.root,s);this.jobs.push(job);const same=this.jobs.filter(j=>j.el===el);if(same.length>(el===3?7:3))this.release(same[0]);}
   release(j){j.root.visible=false;const i=this.jobs.indexOf(j);if(i>=0)this.jobs.splice(i,1);this.pool[j.el].push(j);}
-  cast(e,time,range=27){const s=this.states[e.element],wasCold=time-s.last>.25;if(e.element===2&&wasCold)s.burstStart=time;Object.assign(s,{last:time,x:e.x-e.dx*.35,z:e.z-e.dz*.35,dx:e.dx,dz:e.dz,y:e.y||0,tier:e.tier||1,power:Math.min(1.8,(e.ultimate?1.45:1)*(1+((e.tier||1)-1)*.075)*(1+(e.specialization?.control||0)*.15)),range:clamp(range,e.element===3?14:2,32)});if(e.element===3||e.element===4){const interval=e.element===3?.4-((e.tier||1)-1)*.025:.43;if(wasCold||time-s.lastSpawn>interval){s.lastSpawn=time;this.spawn(e.element,s,time);}}}
+  cast(e,time,range=27){const s=this.states[e.element],wasCold=time-s.last>.25;if(e.element===2&&wasCold)s.burstStart=time;Object.assign(s,{last:time,x:e.x-e.dx*.35,z:e.z-e.dz*.35,dx:e.dx,dz:e.dz,y:e.y||0,tier:e.tier||1,targets:(e.targets||[]).slice(0,8),power:Math.min(1.8,(e.ultimate?1.45:1)*(1+((e.tier||1)-1)*.075)*(1+(e.specialization?.control||0)*.15)),range:clamp(range,e.element===3?14:2,32)});if(e.element===3||e.element===4){const interval=e.element===3?.4-((e.tier||1)-1)*.025:.43;if(wasCold||time-s.lastSpawn>interval){s.lastSpawn=time;this.spawn(e.element,s,time);}}}
   updateFire(s,t,fade){
    const f=this.fire;f.root.visible=fade>0;if(fade<=0)return;this.rootAt(f.root,s);const power=s.power*2.7,range=s.range;
    for(let j=0;j<f.ribbons.length;j++){const r=f.ribbons[j],p=r.positions;r.mesh.visible=j<Math.min(7,4+(s.tier||1));const layer=1-j*.1,angle=j*1.17;
@@ -132,6 +132,9 @@
      if(j%7===0&&j<28){let branch=next;for(let k=1;k<=3;k++){const fork=[next[0]+(h?1:-1)*k*.4,next[1]+(hash(strike+j+k)-.5)*k*.6,next[2]+k*.7];this.electricSegment(branch,fork,index++,.01*fade);branch=fork;}}
      previous=next;
     }
+   }
+   for(const target of (s.targets||[])){const point=e.root.worldToLocal(new T.Vector3(target.x,target.y||2,target.z));let previous=[0,.6,length];
+    for(let j=1;j<=8&&index<620;j++){const u=j/8,w=Math.sin(u*Math.PI),next=[point.x*u+(hash(strike+j)-.5)*w, .6+(point.y-.6)*u+Math.sin(u*Math.PI)*1.3, length+(point.z-length)*u+(hash(strike+j*7)-.5)*w];this.electricSegment(previous,next,index++,.035*fade);previous=next;}
    }
    e.meshes.forEach(m=>{m.count=index;m.instanceMatrix.needsUpdate=true;});e.ring.visible=true;e.ring.position.set(0,.15,length);e.ring.scale.setScalar((1.3+phase*3)*s.power);e.ring.material.opacity=.6*fade*intensity;
   }

@@ -11,3 +11,5 @@
 @media(max-width:700px){#powerGrowth{bottom:93px;font-size:8px;max-width:95%;white-space:normal;text-align:center}}@media(max-height:550px){#powerGrowth{bottom:72px}#tierPowers{grid-template-columns:1fr 1fr}#tierPowers>div{padding:6px}}
 
 #damageNumbers{position:absolute;inset:0;pointer-events:none;overflow:hidden}.damage-number{position:absolute;font:bold 20px/1 "Segoe UI",sans-serif;letter-spacing:-.03em;text-shadow:0 2px 3px #000,1px 0 2px #000,-1px 0 2px #000;will-change:transform,opacity}.damage-number.heavy{font-size:26px;color:#fff1ca}.damage-number[hidden]{display:none}@media(max-width:700px){.damage-number{font-size:16px}.damage-number.heavy{font-size:21px}}
+
+#targetWeakness{width:150px;margin-left:-30px;padding:3px 2px;font-size:9px!important;white-space:nowrap;border-bottom:1px solid currentColor}
