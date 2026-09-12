@@ -1,10 +1,10 @@
-# Fivefold: Seven Worlds — build 0.7 validation
+# Fivefold: Seven Worlds — build 0.8 validation
 
 Tested locally on September 12, 2026. This is a playable campaign prototype, not a claim of finished commercial AAA production quality.
 
 ## Automated checks
 
-`node --test tests/*.test.cjs` passes all **38 reported tests**, including an effects suite with 11 internal checks and a touch suite with 7 internal checks. `python -m unittest discover -s tests -p '*test.py'` passes both server checks. The equivalent Node command is available as `npm test` on a standard Node installation.
+`node --test tests/*.test.cjs` passes all **39 reported tests**, including an effects suite with 11 internal checks and a touch suite with 7 internal checks. `python -m unittest discover -s tests -p '*test.py'` passes both server checks. The equivalent Node command is available as `npm test` on a standard Node installation.
 
 - Campaign: five discoveries, all seven missions, all encounters and route gates, guardian phase changes, Grid Executor relays, mission transitions and the final ending.
 - Progress: save serialization/reload, invalid import rejection, checkpoint death recovery, retained discoveries, six specialization points, rank limits, refunds and Demo isolation.
@@ -18,22 +18,22 @@ The automated campaign driver is invulnerable, chooses suitable powers and targe
 
 | Mission | Simulated traversal |
 |---|---:|
-| The Ashen City | 15:47 |
-| Dust and Iron | 12:59 |
-| Neon Underworld | 12:07 |
-| Tomb of the Sun | 11:38 |
-| The Frostbound Citadel | 10:56 |
-| Cathedral of Cinders | 8:20 |
-| The Shattered Heavens | 8:20 |
-| Total | 80:07 |
+| The Ashen City | 2:06 |
+| Dust and Iron | 1:42 |
+| Neon Underworld | 1:43 |
+| Tomb of the Sun | 1:41 |
+| The Frostbound Citadel | 1:39 |
+| Cathedral of Cinders | 1:30 |
+| The Shattered Heavens | 1:33 |
+| Total | 11:54 |
 
-These results establish mechanical reachability, not a human playthrough. **15–20 minutes per mission remains a pacing target.** Later missions currently finish faster under optimized automated play; a two-hour first-play campaign has not been demonstrated.
+Build 0.8 targets **about 15 minutes for all seven missions combined**. Routes are approximately half their previous length, each encounter has one wave, and enemy, gate and guardian health is reduced. All five discoveries, three encounters per world, two-phase guardians, progression and optional shrines remain. The automated driver completes the main route in 11:54; reading, upgrades, exploration and retries add time. This establishes mechanical reachability, not a measured human playthrough. A regression check caps the automated main route at 14 minutes and each mission at three minutes. Existing version-one saves were tested at all 42 world/checkpoint combinations, preserving unlocks, completed encounters, upgrades and historical time while mapping to the new checkpoint positions.
 
 Additional progression/sword checks cover all 35 element/tier damage combinations, specialization multipliers, retained tiers after guardian completion and death, unique sword trajectories, combo reset, and 6,000 trail updates with bounded geometry. The effects test checks increasing rendered flame/gust counts and water/earth geometry scale. An isolated in-memory save fixture also exercised the real Continue-to-next-world UI: all five elements changed from Tier 1 / 100% to Tier 2 / 120%, with the new-power screen visible. This fixture did not modify the player's campaign save.
 
 The new sword animation was inspected in the live Demo rehearsal, including its selected-element trail. The move-name labels were subsequently removed at the player's request. Floating damage numbers were added and inspected in combat. Four additional checks cover shield-adjusted health loss, killing-blow clamping, immune guardians, relay/periodic damage, short-window aggregation, pause/expiry and the 48-label pool.
 
-The performance observations below predate the final sword and damage-number polish; the trail adds one pooled mesh of at most 138 triangles and the numbers use up to 48 reused DOM labels. Their lifecycles are tested, but no new controlled performance benchmark is claimed.
+The performance observations below predate the compact 0.8 layouts and final sword and damage-number polish; the trail adds one pooled mesh of at most 138 triangles and the numbers use up to 48 reused DOM labels. Their lifecycles are tested, but no new controlled performance benchmark is claimed.
 
 ## Browser and keyboard checks
 
@@ -49,7 +49,7 @@ Phone menu layouts were inspected at 390×844 portrait and 844×390 landscape us
 
 Hardware: Windows laptop, **Intel Core i7-13700H**. Both an NVIDIA RTX 4070 Laptop GPU and Intel Iris Xe are installed; the tested browser actually used **ANGLE / Intel Iris Xe / Direct3D 11**. Do not attribute these measurements to the RTX 4070.
 
-Final material build, 761×791 browser viewport, in-game one-second counters after loading:
+Earlier long-route material build, 761×791 browser viewport, in-game one-second counters after loading:
 
 | Scene | Quality | Observed FPS | Draw calls | Triangles | GPU geometries / textures |
 |---|---|---:|---:|---:|---:|
@@ -100,7 +100,7 @@ The built `dist/index.html` was also loaded under a nested local URL; Demo Lab, 
 Publication follow-up: the game has now been pushed to [nr-sbe/eq](https://github.com/nr-sbe/eq), and [GitHub Actions run 34673896279](https://github.com/nr-sbe/eq/actions/runs/34673896279) passed tests, build and deployment. The playable site is **https://nr-sbe.github.io/eq/**. Public checks returned HTTP 200 for the entry page, campaign/damage scripts, character asset, a photographed texture and the first mission's recording. The published game also loaded in the browser and its Demo controls were exercised without console errors. The earlier statements about local-only validation describe the pre-publication build phase.
 
 - A full human campaign playthrough, including optional shrines and cinematic-action difficulty tuning.
-- Human timing and iteration toward 15–20 minutes in each mission.
+- Human timing and iteration toward approximately 15 minutes for the entire seven-world campaign.
 - Real PC-to-phone save-file transfer through browser file pickers; serialization/import validation itself passes tests.
 - Physical phone multitouch, thermal/sustained FPS and browser audio behavior.
 - Longer camera/targeting edge-case and memory profiling runs.

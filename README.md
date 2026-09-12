@@ -60,7 +60,7 @@ Movement, camera drag and attacks own separate touch pointers, so casting does n
 | Cathedral of Cinders | Bell Engine | Poisoned foundry vents, burning routes, machinery and shockwaves |
 | The Shattered Heavens | Rift Sovereign | Restored causeways, celestial conduits and combined guardian attacks |
 
-Every mission has three multi-wave encounters, one optional mastery shrine, checkpoints and a two-phase guardian. The first mission has five discovery sequences; later missions have two elemental route challenges. Roads bend through bounded districts, with obstacle cover, side shrine routes, ramps and walkable bridges.
+Every mission has three short, single-wave encounters, one optional mastery shrine, checkpoints and a two-phase guardian. The first mission has five discovery sequences; later missions have two elemental route challenges. Roads bend through bounded districts, with obstacle cover, side shrine routes, ramps and walkable bridges.
 
 The first mission unlocks Fire, Air, Lightning, Water and Earth at Tier 1. Entering the next campaign world displays a level-up screen for all five elements. The HUD shows the selected power form and its actual damage multiplier, including Impact specialization. All five advance on entering each subsequent mission, reaching Tier 7. Damage multipliers are **1 / 1.2 / 1.45 / 1.75 / 2.1 / 2.5 / 3**. Successive tiers add secondary strikes, fields, control, reactions, repeated impacts and mastery forms; main effect dimensions are capped at 1.8× baseline.
 
@@ -68,7 +68,7 @@ Guardians in the first six worlds each award one specialization point. **Impact*
 
 Tier 5 introduces Conduct (water/lightning), Wildfire (burning/air), Steam (fire/water) and Molten (earth/fire). Guardians build stagger instead of being repeatedly disabled. Water heals 10 health only on a water-attributed defeat. Earth tempests give 40% damage reduction, not invulnerability.
 
-The pacing target is 15–20 minutes per mission. The automated invulnerable traversal takes approximately 8–16 minutes per world and omits exploration, dodging, death and reading. Human first-play timing and full physical-phone performance remain unverified; see `VALIDATION.md` for measured results and limits.
+The complete seven-world campaign targets approximately **15 minutes**, averaging about two minutes per world. Compact routes, one-wave encounters and shorter guardian fights preserve all five discoveries, seven tiers and two-phase bosses. An invulnerable automated main-route traversal takes **11:54**, leaving room for menus and exploration; human playtime varies with reading, optional shrines and retries. Existing checkpoint saves map to the compact routes without losing progression. Human first-play timing and physical-phone performance remain unverified; see `VALIDATION.md`.
 
 The sword combo uses three authored strikes: **Crosscut → Rising Cut → Sunder**. Upper-body twists and arm poses follow the blade, with an elemental motion trail, a heavier overhead finisher and distinct swing accents. Hold C / SWORD to repeat the combo; release to recover.
 
