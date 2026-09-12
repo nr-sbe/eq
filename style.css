@@ -25,3 +25,5 @@ html,body{overscroll-behavior:none}#game{height:100dvh}#game:fullscreen{height:1
 #moveStick{left:max(18px,env(safe-area-inset-left))}.touch-actions{right:max(15px,env(safe-area-inset-right))}
 .overlay{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right));padding-top:max(16px,env(safe-area-inset-top));padding-bottom:max(16px,env(safe-area-inset-bottom))}
 @media(max-width:700px){.top-actions button{min-height:44px}#modeBadge{display:none}.brand{font-size:9px;letter-spacing:.08em}.brand small{max-width:90px}.top-actions [data-fullscreen]{max-width:86px;letter-spacing:.02em}}
+
+#guardianGuide{position:absolute;z-index:5;left:50%;top:215px;transform:translateX(-50%);max-width:90%;color:#dcc7ff;border-color:#a285d8;font-size:10px;min-height:44px;background:#171426eb}@media(min-width:701px){#guardianGuide{top:165px}}@media(max-height:550px){#guardianGuide{top:128px}}

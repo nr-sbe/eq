@@ -139,3 +139,5 @@ Tap **FULLSCREEN** on the main menu, in-game HUD, or pause settings. Supported b
 ### Elemental sword
 
 The selected element enchants the blade: cutting wind rings, flame tongues and embers, purple lightning branches, water crests and foam, or heaving stone shards. Confirmed sword hits apply that element's existing effects, including burn, paralysis, water marks/healing and earth interruption. Swings retain their starting element when switching mid-combo. The hilt is attached to the animated hand's palm socket throughout movement, sword combos and offhand casting.
+
+Neon Underworld now uses Scott Buckley’s **Neon** for exploration and **AI Fight** for combat, with lighter MP3 files and quieter ambience. During the relay shield phase the camera keeps the Grid Executor in view; an offscreen guardian button recenters the camera.

@@ -1,10 +1,10 @@
-# Tempest Walker: Storm of Ruins — 0.11.2 validation
+# Tempest Walker: Storm of Ruins — 0.11.3 validation
 
 Tested September 12, 2026. The approximately 15-minute campaign and two-minute showcase are human first-play targets, not measured human completion times.
 
 ## Automated checks
 
-- `node --test tests/*.test.cjs`: **91 passing tests**, covering fixed simulation at 30/60/120 FPS, seven-tier damage/effects, all 30 specialization ranks, saves and migration, death, keyboard focus/taps, independent touch pointers, sword contact timing and captured element/tier, air critical consumption, wet-defeat healing, control recovery, attack budgets, cover, pylon targeting, showcase retries/ending/isolation, music transitions, asset hashes and bounded effect pools.
+- `node --test tests/*.test.cjs`: **95 passing tests**, covering fixed simulation at 30/60/120 FPS, seven-tier damage/effects, all 30 specialization ranks, saves and migration, death, keyboard focus/taps, independent touch pointers, sword contact timing and captured element/tier, air critical consumption, wet-defeat healing, control recovery, attack budgets, cover, pylon targeting, showcase retries/ending/isolation, music transitions, asset hashes and bounded effect pools.
 - `python -m unittest discover -s tests -p '*test.py'`: **2 passing server tests**. Restricted asset serving and legacy entry aliases remain; traversal and development paths are rejected.
 - Static deployment build succeeds with relative asset URLs.
 
@@ -57,3 +57,13 @@ The weapon is now parented to a palm socket on the animated right hand, with wri
 Fullscreen implementation references: [MDN Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API), [WebKit Home Screen web apps](https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/).
 
 With several WebGL preview tabs open concurrently, a Tier 7 sword rehearsal snapshot measured 45 FPS on Intel Iris Xe at 761×791/high. This is not a single-tab sustained performance measurement; the previous 60 FPS snapshots should not be interpreted as a guarantee for the updated busiest scenes.
+
+## Neon Underworld Android report — 0.11.3
+
+Reproduced a camera problem: selecting a near relay rotated the view away from the Grid Executor. Portrait framing also placed an outer relay outside the viewport. The relay shield phase now frames the guardian independently of attack targeting, and portrait distance contains all relay cores from the entrance. A tap-to-center guardian indicator appears when the boss is offscreen. Dormant guardians render on approach before activation, while attacks retain their original trigger. Cyber guardian emissive reactor/halo accents improve readability; shield links follow its current position.
+
+The original Machina file decoded successfully; its artist describes deliberate glitch textures. Replaced it with Scott Buckley's CC-BY Neon cue, reduced cyber ambience from 0.025 to 0.006, and exported both Neon cues at 160 kbps MP3 with source headroom. File sizes: 5,182,859 and 5,361,415 bytes (previous pair: 23,027,769 bytes). Full-track decoded peaks: Neon 0.7531; AI Fight 0.7437; zero samples at or beyond ±1. The old AI Fight Ogg contained codec overshoots; this does not establish that the final runtime mix clipped. Shared crossfade/resumption rules remain unchanged.
+
+95 Node tests pass, including checkpoint reload, dormant guardian visibility, relay-independent framing and projection of the boss/all cores at 390×844, 412×915, landscape phone and desktop aspect ratios. Browser portrait encounter rendering and music decoding/mix checks supplement simulation tests. The embedded-input harness lost focus during attempts to automate casting, so its combat completion is not claimed; full normal-health campaign simulation and relay-targeting regressions pass. Physical Android Chrome audio and visibility remain unverified; we cannot reproduce the exact handset remotely.
+
+Music sources: [Machina description](https://www.scottbuckley.com.au/library/machina/), [Neon and CC-BY license](https://www.scottbuckley.com.au/library/neon/). The soundtrack change addresses the reported static-like texture; it is not a claim that all possible device audio faults were reproduced.
