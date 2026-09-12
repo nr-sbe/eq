@@ -1,5 +1,7 @@
 # Fivefold: Seven Worlds
 
+**[Play in your browser](https://nr-sbe.github.io/eq/)** · [Source repository](https://github.com/nr-sbe/eq)
+
 A playable Three.js elemental action campaign for PC and touch browsers. Seven connected missions follow a modern swordsman through a fractured world, with unlimited casting, automatic targeting, sword combat and a consistent ink-and-storm visual style.
 
 ## Play locally
@@ -20,16 +22,13 @@ python serve.py --host 0.0.0.0
 
 The terminal prints your computer's LAN address. Open that address on the phone. The server serves only game assets, blocks traversal and directory listing, and supports audio range requests. Stop it with Ctrl+C. Internet hosting is optional.
 
-## Share on GitHub later
+## GitHub and sharing
 
-Prepared for the existing repository **https://github.com/nr-sbe/eq**. This folder is the repository root. Keep `.github`, `assets` and all source files together. No backend, API key, account integration, package download or build dependency is needed for gameplay.
+The project is hosted in **[nr-sbe/eq](https://github.com/nr-sbe/eq)**. Share the playable address **https://nr-sbe.github.io/eq/** with PC or phone players.
 
-1. Open your existing `nr-sbe/eq` repository and upload/push the contents of this folder to its `main` branch. Use Git or GitHub Desktop for the complete folder, including the hidden `.github` directory.
-2. In the repository's **Settings → Pages**, select **GitHub Actions** as the source.
-3. The included workflow runs the tests, builds `dist/`, and deploys the static game. You can also run the workflow manually from Actions.
-4. Share the Pages URL that GitHub provides. Relative URLs work under a project path such as `https://nr-sbe.github.io/eq/` (the expected URL after a successful deployment).
+The `main` branch contains the complete game source. Each push runs the tests and static build, then the included GitHub Actions workflow deploys `dist/` to GitHub Pages. Watch deployment results under the repository's **Actions** tab. Relative URLs support the `/eq/` project path. See `GITHUB.md` for updating the repository.
 
-Nothing has been published automatically. Retain `ASSET-CREDITS.md` and the in-game credits. Music and the character have separate licenses from the original game code. Each bundled asset is below GitHub's 100 MB individual-file limit. Downloading the whole game on a phone can still use around 100 MB of data; music streams by mission rather than loading the entire score at startup.
+Retain `ASSET-CREDITS.md` and in-game credits. Recordings and the character have separate licenses from the original game code. The game has no backend, API key or third-party runtime service. Each asset is below GitHub's individual-file limit; the full download is around 100 MB, and music streams by mission.
 
 ## Controls
 
