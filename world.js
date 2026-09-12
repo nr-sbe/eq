@@ -22,7 +22,17 @@ class WorldView{
  add(g,key,x,y,z,sx=1,sy=1,sz=1,rx=0,ry=0,rz=0){const o=new T.Object3D();o.position.set(x,y,z);o.scale.set(sx,sy,sz);o.rotation.set(rx,ry,rz);o.updateMatrix();const b=g.index?g.toNonIndexed():g.clone();b.applyMatrix4(o.matrix);if(['ground','stone','wood'].includes(key)){const p=b.attributes.position,n=b.attributes.normal,uv=b.attributes.uv;for(let i=0;i<p.count;i++){const nx=Math.abs(n.getX(i)),ny=Math.abs(n.getY(i));uv.setXY(i,(nx>.5?p.getZ(i):p.getX(i))*.23,(ny>.5?p.getZ(i):p.getY(i))*.23);}}if(!this.batch.has(key))this.batch.set(key,[]);this.batch.get(key).push(b);g.dispose();}
  box(key,x,y,z,w,h,d,rx=0,ry=0,rz=0){this.add(new T.BoxGeometry(1,1,1),key,x,y,z,w,h,d,rx,ry,rz);}
  cyl(key,x,y,z,r,h,n=12){this.add(new T.CylinderGeometry(r,r,h,n),key,x,y,z);}
- rock(key,x,y,z,w,h,d,n=0){this.add(new T.IcosahedronGeometry(1,n),key,x,y,z,w,h,d,.15,rand(x+z)*6,.1);}
+ rock(key,x,y,z,w,h,d,n=0){const geometry=new T.IcosahedronGeometry(1,n),background=d>=30&&Math.abs(x-this.game.level.centerAt(z))>30;let yaw=background?(rand(x+z)-.5)*.12:rand(x+z)*6;
+  if(background){
+   // Reserve the whole bent road and shrine court, using the transformed geometry rather than its nominal width.
+   geometry.computeBoundingBox();const transform=new T.Object3D();transform.position.set(x,y,z);transform.scale.set(w,h,d);transform.rotation.set(.15,yaw,.1);transform.updateMatrix();const bounds=geometry.boundingBox.clone().applyMatrix4(transform.matrix),level=this.game.level;
+   const centers=[level.centerAt(bounds.min.z),level.centerAt(bounds.max.z),...level.routes.filter(p=>p.z>=bounds.min.z&&p.z<=bounds.max.z).map(p=>p.x)];
+   const left=Math.min(...centers)-25;let right=Math.max(...centers)+25;
+   if(bounds.max.z>=level.shrine.z-24&&bounds.min.z<=level.shrine.z+24)right=Math.max(right,level.shrine.x+16);
+   if(x<level.centerAt(z))x-=Math.max(0,bounds.max.x-left);else x+=Math.max(0,right-bounds.min.x);
+  }
+  this.add(geometry,key,x,y,z,w,h,d,.15,yaw,.1);
+ }
  end(){for(const [key,gs]of this.batch){const geometry=new T.BufferGeometry();for(const name of ['position','normal','uv']){let n=0;for(const g of gs)n+=g.attributes[name]?.array.length||0;if(!n)continue;const array=new Float32Array(n);let o=0;for(const g of gs){if(g.attributes[name]){array.set(g.attributes[name].array,o);o+=g.attributes[name].array.length;}}geometry.setAttribute(name,new T.BufferAttribute(array,name==='uv'?2:3));}geometry.computeBoundingSphere();this.mesh(geometry,key,this.chunk);gs.forEach(g=>g.dispose());}this.batch.clear();}
  roof(x,y,z,w,d,levels=1){for(let k=0;k<levels;k++){const scale=1-k*.22,yy=y+k*3;this.box('wood',x,yy-1,z,w*scale*.86,2,d*scale*.8);for(let side of [-1,1]){this.box('metal',x+side*w*scale*.24,yy+.35,z,w*scale*.56,.22,d*scale+1,0,0,side*-.28);this.box('metal',x+side*w*scale*.5,yy-.1,z,.7,.18,d*scale+1.4,0,0,side*.22);for(let j=-3;j<=3;j++)this.box('stone',x+side*w*scale*.24,yy+.5,z+j*d*scale/7,w*scale*.55,.065,.08,0,0,side*-.28);}this.box('metal',x,yy+1,z,.35,.25,d*scale+1.8);}}
  arch(x,z,w,h,gothic=false){for(let side of [-1,1]){this.box('stone',x+side*w/2,h/2,z,1.4,h,1.8);this.box('accent',x+side*w/2,1,z,2,2,2.4);}if(gothic){for(let side of [-1,1])this.box('stone',x+side*w/4,h+1,z,w*.62,1,1.8,0,0,-side*.7);}else this.box('stone',x,h,z,w+3,1.5,2);}

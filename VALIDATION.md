@@ -1,10 +1,10 @@
-# Tempest Walker: Storm of Ruins — 0.11.0 validation
+# Tempest Walker: Storm of Ruins — 0.11.1 validation
 
 Tested September 12, 2026. The approximately 15-minute campaign and two-minute showcase are human first-play targets, not measured human completion times.
 
 ## Automated checks
 
-- `node --test tests/*.test.cjs`: **80 passing tests**, covering fixed simulation at 30/60/120 FPS, seven-tier damage/effects, all 30 specialization ranks, saves and migration, death, keyboard focus/taps, independent touch pointers, sword contact timing and captured element/tier, air critical consumption, wet-defeat healing, control recovery, attack budgets, cover, pylon targeting, showcase retries/ending/isolation, music transitions, asset hashes and bounded effect pools.
+- `node --test tests/*.test.cjs`: **83 passing tests**, covering fixed simulation at 30/60/120 FPS, seven-tier damage/effects, all 30 specialization ranks, saves and migration, death, keyboard focus/taps, independent touch pointers, sword contact timing and captured element/tier, air critical consumption, wet-defeat healing, control recovery, attack budgets, cover, pylon targeting, showcase retries/ending/isolation, music transitions, asset hashes and bounded effect pools.
 - `python -m unittest discover -s tests -p '*test.py'`: **2 passing server tests**. Restricted asset serving and legacy entry aliases remain; traversal and development paths are rejected.
 - Static deployment build succeeds with relative asset URLs.
 
@@ -37,3 +37,9 @@ OfflineAudioContext rendered ten cases at 44.1 kHz: five powers, mute, awakening
 - Player feedback on animation, art and balance. This is a browser action prototype/showcase, not a claim of commercial AAA production quality.
 
 See `PLAN-CHECKLIST.md` for the implementation audit.
+
+## Guardian terrain correction — 0.11.1
+
+Reproduced transformed background-cliff bounds intersecting the western guardian and dune bounds intersecting the tomb guardian. The long terrain shapes now stay aligned with the road and their full transformed bounds remain outside the curved playable corridor and optional shrine court. Boss spawning, approach/retreat and charge landings use three-unit body clearance around obstacles. The player retains the original movement clearance.
+
+Three new regression tests build the real western, cyberpunk and tomb geometry and verify clear guardian starts; test cliffs/dunes along the road and shrine; and test boss spawn and charge landings beside cover. All 83 tests pass, including the complete normal-health campaign and showcase.
