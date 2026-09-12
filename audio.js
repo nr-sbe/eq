@@ -13,7 +13,6 @@
    }catch{return;}}
    this.loadThunder();
    if(this.context.state==='suspended')this.context.resume();
-   if(this.desiredMusic&&this.musicFile!==this.desiredMusic)this.setTrack(this.desiredMusic);
   }
   loadThunder(){if(this.thunderLoading)return this.thunderLoading;if(!this.context)return Promise.resolve();this.thunderLoading=fetch('assets/effects/lightning-impact.wav').then(r=>{if(!r.ok)throw Error('Thunder asset unavailable');return r.arrayBuffer();}).then(bytes=>this.context.decodeAudioData(bytes)).then(buffer=>{this.thunderBuffer=buffer;}).catch(()=>{this.thunderLoading=null;});return this.thunderLoading;}
   playThunder(volume,pan){const c=this.context;if(!this.thunderBuffer||!c||c.state!=='running'||!this.enabled||this.voices>=180)return false;
@@ -33,16 +32,6 @@
    src.onended=()=>{this.voices--;src.disconnect();f.disconnect();gain.disconnect();p.disconnect();if(lfo){lfo.disconnect();depth.disconnect();}};src.start(t,noise?Math.random():undefined);src.stop(t+duration+.01);
   }
   setVolumes(music,effects){this.musicVolume=music;this.effectsVolume=effects;if(this.effectsBus)this.effectsBus.gain.setTargetAtTime(effects,this.context.currentTime,.06);}
-  setTrack(file){this.desiredMusic=file;if(!this.context||this.musicFile===file)return;this.musicFile=file;const c=this.context;
-   for(const deck of this.decks){deck.gain.gain.cancelScheduledValues(c.currentTime);deck.gain.gain.setTargetAtTime(0,c.currentTime,.55);if(deck.timer)clearTimeout(deck.timer);deck.timer=setTimeout(()=>this.releaseDeck(deck),2400);}
-   while(this.decks.length>=2)this.releaseDeck(this.decks[0]);
-   const audio=new Audio('assets/audio/'+file);audio.loop=true;audio.preload='auto';const source=c.createMediaElementSource(audio),gain=c.createGain();gain.gain.value=0;source.connect(gain);gain.connect(this.musicBus);const deck={audio,source,gain};this.decks.push(deck);
-   audio.addEventListener('error',()=>{this.musicError='Could not load '+file;});audio.play().then(()=>{this.musicError=null;gain.gain.setTargetAtTime(1,c.currentTime,.65);}).catch(()=>{this.musicError='Tap Resume to enable audio.';});
-  }
-  releaseDeck(deck){if(deck.timer)clearTimeout(deck.timer);deck.audio.pause();deck.audio.removeAttribute('src');deck.audio.load();deck.source.disconnect();deck.gain.disconnect();this.decks=this.decks.filter(d=>d!==deck);}
-  tickMusic(active,combat=false,theme='japan'){const c=this.context;if(!c)return;const playing=active&&this.enabled&&this.musicEnabled&&c.state==='running';this.musicBus.gain.setTargetAtTime(playing?this.musicVolume*(combat?.65:.42):0,c.currentTime,.2);
-   if(playing&&c.currentTime>this.ambienceAt){this.ambienceAt=c.currentTime+2.3;this.layer({noise:true,white:['japan','cyber'].includes(theme),cutoff:theme==='ice'?1300:480,endCutoff:theme==='west'?190:600,duration:3,attack:.6,volume:combat?.025:.05});}
-  }
   awaken(){
    // A rising major arpeggio with stable pitches and a warm sustained resolution.
    [261.63,329.63,392,523.25,659.25].forEach((f,i)=>{this.layer({from:f,to:f,duration:1.35,volume:.075,attack:.012,delay:i*.095,cutoff:4200,pan:(i-2)*.12});this.layer({from:f*2,to:f*2,duration:.8,volume:.019,attack:.004,delay:i*.095,cutoff:6000});});

@@ -1,4 +1,4 @@
-# Fivefold: Seven Worlds
+# Tempest Walker: Storm of Ruins
 
 **[Play in your browser](https://nr-sbe.github.io/eq/)** · [Source repository](https://github.com/nr-sbe/eq)
 
@@ -28,7 +28,7 @@ The project is hosted in **[nr-sbe/eq](https://github.com/nr-sbe/eq)**. Share th
 
 The `main` branch contains the complete game source. Each push runs the tests and static build, then the included GitHub Actions workflow deploys `dist/` to GitHub Pages. Watch deployment results under the repository's **Actions** tab. Relative URLs support the `/eq/` project path. See `GITHUB.md` for updating the repository.
 
-Retain `ASSET-CREDITS.md` and in-game credits. Recordings and the character have separate licenses from the original game code. The game has no backend, API key or third-party runtime service. Each asset is below GitHub's individual-file limit; the full download is around 100 MB, and music streams by mission.
+Retain `ASSET-CREDITS.md` and in-game credits. Recordings and the character have separate licenses from the original game code. The game has no backend, API key or third-party runtime service. Each asset is below GitHub's individual-file limit; the full download is around 150 MB, and music streams by mission.
 
 ## Controls
 
@@ -38,7 +38,6 @@ Retain `ASSET-CREDITS.md` and in-game credits. Recordings and the character have
 | Cast selected element | Hold Space | Hold CAST |
 | Area tempest | Hold E | Hold TEMPEST |
 | Three-hit infused sword combo | Hold or tap C | SWORD |
-| Dodge | Shift | DODGE |
 | Select element | 1–5 | Element buttons |
 | Cycle visible target | Tab | TARGET |
 | Orbit camera | Right-drag or Q/F | Drag the world |
@@ -58,17 +57,17 @@ Movement, camera drag and attacks own separate touch pointers, so casting does n
 | Tomb of the Sun | Sun Colossus | Buried gates, water channels, monumental courts and sweeping beams |
 | The Frostbound Citadel | Rime Jarl | Ice seals, sheltered routes, blizzards and armored charges |
 | Cathedral of Cinders | Bell Engine | Poisoned foundry vents, burning routes, machinery and shockwaves |
-| The Shattered Heavens | Rift Sovereign | Restored causeways, celestial conduits and combined guardian attacks |
+| The Shattered Metropolis | Rift Sovereign | NYC-inspired Art Deco towers, elevated rail crossings, Meridian Tower and combined guardian attacks |
 
 Every mission has three short, single-wave encounters, one optional mastery shrine, checkpoints and a two-phase guardian. The first mission has five discovery sequences; later missions have two elemental route challenges. Roads bend through bounded districts, with obstacle cover, side shrine routes, ramps and walkable bridges.
 
-The first mission unlocks Fire, Air, Lightning, Water and Earth at Tier 1. Crystals sit on the main route and awaken as you enter their district, across the street width; no precise pickup or side hunt is needed. Entering the next campaign world displays a level-up screen for all five elements. The HUD shows the selected power form and its actual damage multiplier, including Impact specialization. All five advance on entering each subsequent mission, reaching Tier 7. Damage multipliers are **1 / 1.2 / 1.45 / 1.75 / 2.1 / 2.5 / 3**. Successive tiers add secondary strikes, fields, control, reactions, repeated impacts and mastery forms; main effect dimensions are capped at 1.8× baseline.
+The first mission unlocks Fire, Air, Lightning, Water and Earth at Tier 1. Crystals sit on the main route and awaken as you enter their district, across the street width; no precise pickup or side hunt is needed. Entering the next campaign world displays a level-up screen for all five elements. The HUD shows the selected power form and its actual damage multiplier, including Impact specialization. All five advance on entering each subsequent mission, reaching Tier 7. Damage multipliers are **1 / 1.2 / 1.45 / 1.75 / 2.1 / 2.5 / 3**. Successive tiers add secondary strikes, fields, control, stronger reactions, repeated impacts and mastery forms; main effect dimensions are capped at 1.8× baseline.
 
 Guardians in the first six worlds each award **five specialization points**: 30 total, enough to max both branches of all five elements before the final world. **Upgrade All** spends available points evenly in one click. Existing saves receive the larger rewards retroactively, without replaying missions. **Impact** adds 15% damage per rank; **Control** adds 15% area and status duration per rank. Each branch caps at three ranks. Refund and redistribute at a checkpoint outside combat or after a guardian victory.
 
-Tier 5 introduces Conduct (water/lightning), Wildfire (burning/air), Steam (fire/water) and Molten (earth/fire). Guardians build stagger instead of being repeatedly disabled. Water heals 10 health only on a water-attributed defeat. Earth tempests give 40% damage reduction, not invulnerability.
+Discovering the required elements enables Conduct (water/lightning), Wildfire (burning/air), Steam (fire/water) and Molten (earth/fire). Guardians build stagger instead of being repeatedly disabled. Defeating a water-marked enemy heals 10 health regardless of the finishing element. Earth tempests give 40% damage reduction, not invulnerability.
 
-The complete seven-world campaign targets approximately **15 minutes**, averaging about two minutes per world. Compact routes, one-wave encounters and shorter guardian fights preserve all five discoveries, seven tiers and two-phase bosses. An invulnerable automated main-route traversal takes **7:43**, leaving room for menus and exploration; human playtime varies with reading, optional shrines and retries. Existing checkpoint saves map to the compact routes without losing progression. Human first-play timing and physical-phone performance remain unverified; see `VALIDATION.md`.
+The complete seven-world campaign targets approximately **15 minutes**, averaging about two minutes per world. Compact routes, one-wave encounters and shorter guardian fights preserve all five discoveries, seven tiers and two-phase bosses. An automated main-route traversal with normal health and automatic targeting takes about **7:40**, leaving room for menus and exploration; human playtime varies with reading, optional shrines and retries. Existing checkpoint saves map to the compact routes without losing progression. Human first-play timing and physical-phone performance remain unverified; see `VALIDATION.md`.
 
 The sword combo uses three authored strikes: **Crosscut → Rising Cut → Sunder**. Upper-body twists and arm poses follow the blade, with an elemental motion trail, a heavier overhead finisher and distinct swing accents. Hold C / SWORD to repeat the combo; release to recover.
 
@@ -80,7 +79,7 @@ Air has a **25% critical-hit chance at Tier 1**, increasing by 2.5 percentage po
 
 The action presentation includes slicing air crescents, fire eruptions and flying embers, foam wakes and undertow around the Great Wave, branching thunder strikes, and outward rock fractures. Air uses a quick whoosh; lightning uses an edited 1.45-second thunder impact with a sharp onset, reinforced bass and a short decay, with no electrical impact chatter. The protagonist and regular enemies are 45% larger, guardian scale is increased proportionately, and camera aim, sword reach and target labels accommodate the new proportions.
 
-Running speed is 13 world units per second (up from 9), with 34-unit-per-second dodges (up from 25). The run animation is accelerated to match; PC and touch use the same movement rules.
+Running speed is 13 world units per second, with movement preserved during swordplay and casting. Shift is unassigned. The run animation is accelerated to match; PC and touch use the same movement rules.
 
 ## Progress, replay and demo
 
@@ -113,7 +112,7 @@ npm run build
 - `damage-numbers.js`: pooled health-loss feedback above enemies.
 - `keyboard.js` / `touch.js`: input ownership and camera-relative movement.
 - `effects.js` / `mastery-fx.js` / `impact-fx.js`: bounded elemental presentation.
-- `audio.js`: procedural effects, ambience, streamed recordings and crossfades.
+- `audio.js`: procedural effects and audio buses.
 - `assets/audio/`: licensed recordings and a source/hash manifest.
 - `tests/`: campaign, combat, resource lifecycle and touch regression checks.
 
@@ -121,4 +120,14 @@ The existing Three.js r160 pipeline is vendored locally. The game makes no runti
 
 ### Elemental roles
 
-Air has 25–40% critical chance and double-damage critical hits. Fire ignites enemies for periodic damage; burning enemies erupt on defeat, damaging and igniting nearby visible foes. Lightning briefly paralyzes regular enemies from Tier 1, with a two-second recovery interval between applications. Water restores 10 health on a water-attributed defeat, capped at 100. Earth interrupts regular enemy windups and gives 0.8 seconds of 40% damage reduction; earth tempests last 1.2 seconds. Bosses build stagger instead of suffering ordinary paralysis or interruption; a full stagger cancels their pending attack.
+Air has 25–40% critical chance and double-damage critical hits. Fire ignites enemies for periodic damage; burning enemies erupt on defeat, damaging and igniting nearby visible foes. Lightning briefly paralyzes regular enemies from Tier 1, with a two-second recovery interval between applications. Water restores 10 health on a marked enemy defeat, capped at 100. Earth interrupts regular enemy windups and gives 0.8 seconds of 40% damage reduction; earth tempests last 1.2 seconds. Bosses build stagger instead of suffering ordinary paralysis or interruption; a full stagger cancels their pending attack.
+
+## Storm Awakening showcase
+
+Choose **ASHEN CITY SHOWCASE** on the main menu for a separate, approximately two-minute playable preview. All five elements start at Tier 1. Clearing the opening encounter transforms them to Tier 4; clearing the flooded courtyard transforms them to Tier 7 with maximum specializations. Defeat the two-phase Bell Warden, then release and press CAST for the finishing moment. Retry checkpoints retain the most recent transformation. Showcase play never writes campaign progression.
+
+Sword damage follows the active blade sweep, once per target per strike. A successful finisher primes one guaranteed Air critical cast for three seconds. Sword and offhand casting work together. Enemy warnings commit their aim; ordinary attacks have at least 0.9 seconds of warning, guardian attacks at least 1.2 seconds. Two ordinary attackers may prepare damage at once, falling to one during a guardian's major windup. There is no dodge.
+
+All seven worlds and the showcase use separate exploration/combat recordings. Combat fades in over 2.5 seconds. After an encounter clears, a six-second quiet interval precedes the four-second return. Interrupted fades reverse, cue positions are retained, and failed loads leave the current cue audible while retrying. Pausing stops the clear timer and preserves track position. Sources, gains, and uncut loop records accompany the assets.
+
+Additional modules: `combat-system.js` owns sword contacts and environmental interactions; `music-director.js` owns resumable music transitions; `world-detail.js` owns bounded reactive scenery; `art-deco.js` builds the seventh world's architecture; `showcase.js` is loaded on showcase entry. Saves migrate to version 2 while preserving the original storage key and URLs.

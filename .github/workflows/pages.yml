@@ -1,4 +1,4 @@
-name: Test and publish Fivefold
+name: Test and publish Tempest Walker
 on:
   push:
     branches: [main]

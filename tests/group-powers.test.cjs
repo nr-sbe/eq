@@ -29,7 +29,7 @@ test('free aiming hits a group, tempest covers a wider area, and direct hits do 
  const g=arena(2);g.element=2;const a=enemy(g,0,20),b=enemy(g,2,20),wide=enemy(g,10,20);g.cast(a);assert.ok(Math.abs(b.max-b.hp-8*1.2)<1e-8);g.events=[];const prior=wide.hp;g.cast(a,true);assert.ok(wide.hp<prior);
 });
 test('weakness grants fifty percent bonus to powers and infused sword, including guardians; shielding is preserved',()=>{
- for(let el=0;el<5;el++)for(const sword of [false,true]){const g=arena();g.element=el;const e=enemy(g,0,sword?3:20);e.weakness=el;g.random=()=>1;g.cast(e,false,sword);assert.equal(e.max-e.hp,(sword?22:8)*1.5);assert.equal(g.events.find(e=>e.type==='damage').weak,true);}
+ for(let el=0;el<5;el++)for(const sword of [false,true]){const g=arena();g.element=el;const e=enemy(g,0,sword?3:20);e.weakness=el;g.random=()=>1;g.cast(e,false,sword);if(sword){g.enemyStep=()=>{};g.advance(.2,{});}assert.equal(e.max-e.hp,(sword?22:8)*1.5);assert.equal(g.events.find(e=>e.type==='damage').weak,true);}
  const g=arena(),shield=g.makeEnemy(0,20,'shield');assert.equal(shield.weakness,4);g.hit(shield,10,1,false);assert.equal(shield.max-shield.hp,4.5);const before=shield.hp;g.hit(shield,10,4,false);assert.equal(before-shield.hp,15);
  g.boss.active=true;const hp=g.boss.hp;g.hit(g.boss,10,g.boss.weakness,false);assert.equal(hp-g.boss.hp,15);
  const cyber=new CampaignGame(new CampaignState(),{demo:true,level:2});const protectedHp=cyber.boss.hp;cyber.hit(cyber.boss,10,cyber.boss.weakness);assert.equal(cyber.boss.hp,protectedHp);

@@ -3,58 +3,151 @@
     "file": "asian-drums.mp3",
     "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Asian%20Drums.mp3",
     "bytes": 5662938,
-    "sha256": "c715f9f9af67505447e8083f50206799ec8563157aab6fdc80e7672698cc8a7d"
+    "sha256": "c715f9f9af67505447e8083f50206799ec8563157aab6fdc80e7672698cc8a7d",
+    "playbackGain": 1,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   },
   {
     "file": "scarab.mp3",
     "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Curse%20of%20the%20Scarab.mp3",
     "bytes": 10473824,
-    "sha256": "e1c825715a8e0e58eb7bf308438df68bcd2b9caf5df84d397e0466bcba89e193"
+    "sha256": "e1c825715a8e0e58eb7bf308438df68bcd2b9caf5df84d397e0466bcba89e193",
+    "playbackGain": 0.64,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   },
   {
     "file": "ai-fight.ogg",
     "url": "https://opengameart.org/sites/default/files/ai_fight_120bpm.ogg",
     "bytes": 15136131,
-    "sha256": "c2023138579f6fb99b238fffc562d927a9712db04fdbd4a0a6ab6e8bf64d988a"
+    "sha256": "c2023138579f6fb99b238fffc562d927a9712db04fdbd4a0a6ab6e8bf64d988a",
+    "playbackGain": 0.21,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   },
   {
     "file": "machina.mp3",
     "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/9c/Scott_Buckley_-_Machina.oga/Scott_Buckley_-_Machina.oga.mp3",
     "mirror": "https://commons.wikimedia.org/wiki/File:Scott_Buckley_-_Machina.oga",
     "bytes": 7891638,
-    "sha256": "caab571953e7999e929d6df92ae74c65b509fc2d98e3f46c6055b384557778a4"
+    "sha256": "caab571953e7999e929d6df92ae74c65b509fc2d98e3f46c6055b384557778a4",
+    "playbackGain": 0.56,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   },
   {
     "file": "legionnaire.mp3",
     "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f8/Scott_Buckley_-_Legionnaire_%28ORIGINAL_VERSION%29.oga/Scott_Buckley_-_Legionnaire_%28ORIGINAL_VERSION%29.oga.mp3",
     "mirror": "https://commons.wikimedia.org/wiki/File:Scott_Buckley_-_Legionnaire_%28ORIGINAL_VERSION%29.oga",
     "bytes": 4564051,
-    "sha256": "b21e4341ce23c5db40727a0a70a7a79ebb2427998e00411ca185f4e4fd3f1445"
+    "sha256": "b21e4341ce23c5db40727a0a70a7a79ebb2427998e00411ca185f4e4fd3f1445",
+    "playbackGain": 0.34,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   },
   {
     "file": "ascension.mp3",
     "url": "https://www.free-stock-music.com/music/scott-buckley/mp3/scott-buckley-ascension.mp3",
     "mirror": "https://www.free-stock-music.com/scott-buckley-ascension.html",
     "bytes": 14853414,
-    "sha256": "72cce153866fbb5b0c5d8ffb0be2ea73bf64190e2b70a50cbcc8c83b5a8e0dbf"
+    "sha256": "72cce153866fbb5b0c5d8ffb0be2ea73bf64190e2b70a50cbcc8c83b5a8e0dbf",
+    "playbackGain": 0.95,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   },
   {
     "file": "long-dark.mp3",
     "url": "https://www.free-stock-music.com/music/scott-buckley/mp3/scott-buckley-the-long-dark.mp3",
     "mirror": "https://www.free-stock-music.com/scott-buckley-the-long-dark.html",
     "bytes": 17595203,
-    "sha256": "fa5bfe904dd4902b9eb66d8df518a91adde41fb6d1687aefb5af1a2de7da28da"
+    "sha256": "fa5bfe904dd4902b9eb66d8df518a91adde41fb6d1687aefb5af1a2de7da28da",
+    "playbackGain": 0.8,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   },
   {
     "file": "old-ones.ogg",
     "url": "https://commons.wikimedia.org/wiki/File:Scott_Buckley_-_The_Old_Ones.oga",
     "bytes": 5747637,
-    "sha256": "0e22e3526e5cb185502439c0d44730a6f80d8e8b43e2ea4a3297bfd37a19224b"
+    "sha256": "0e22e3526e5cb185502439c0d44730a6f80d8e8b43e2ea4a3297bfd37a19224b",
+    "playbackGain": 1,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   },
   {
     "file": "western.mp3",
     "url": "https://opengameart.org/content/spaghetti-western-theme-orchestral",
     "bytes": 4139048,
-    "sha256": "626243d8ed0ce320259453d2903feb0ee972121995a81bfc413b2dcea209d484"
+    "sha256": "626243d8ed0ce320259453d2903feb0ee972121995a81bfc413b2dcea209d484",
+    "playbackGain": 0.54,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
+  },
+  {
+    "file": "japan-battle.mp3",
+    "title": "Mountain Emperor",
+    "author": "Kevin MacLeod",
+    "source": "https://incompetech.com/music/royalty-free/index.html?Search=Search&isrc=USUAN1700012",
+    "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Mountain%20Emperor.mp3",
+    "license": "CC BY 4.0",
+    "bytes": 6404535,
+    "sha256": "5dd109bdeb8f206ec4ca276e47aa6b6b8ca96df4b5580e5e2f078f4a95a00f7b",
+    "playbackGain": 0.54,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
+  },
+  {
+    "file": "egypt-battle.mp3",
+    "title": "Five Armies",
+    "author": "Kevin MacLeod",
+    "source": "https://incompetech.com/music/royalty-free/index.html?Search=Search&isrc=USUAN1100875",
+    "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Five%20Armies.mp3",
+    "license": "CC BY 4.0",
+    "bytes": 6235982,
+    "sha256": "f56746c90756db04675a80ebd29e22253177a6fcc16f56602da62af9eae8d733",
+    "playbackGain": 0.387,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
+  },
+  {
+    "file": "gothic-battle.mp3",
+    "title": "The Descent",
+    "author": "Kevin MacLeod",
+    "source": "https://incompetech.com/music/royalty-free/index.html?Search=Search&isrc=USUAN1200094",
+    "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/The%20Descent.mp3",
+    "license": "CC BY 4.0",
+    "bytes": 7672813,
+    "sha256": "f097d51700b970efffc62499473ea3a31e09aad4172e787978bc9c2a644d53a2",
+    "playbackGain": 0.54,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
+  },
+  {
+    "file": "heavens-battle.mp3",
+    "title": "Clash Defiant",
+    "author": "Kevin MacLeod",
+    "source": "https://incompetech.com/music/royalty-free/index.html?Search=Search&isrc=USUAN1600003",
+    "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Clash%20Defiant.mp3",
+    "license": "CC BY 4.0",
+    "bytes": 12021086,
+    "sha256": "e2c0dfd33481c032fc8626c86f279b41a542d9b359f72c8b90833c28a1211f76",
+    "playbackGain": 0.3,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
+  },
+  {
+    "file": "west-battle.mp3",
+    "title": "Two Guns, One Destiny",
+    "artist": "Shane Ivers",
+    "source": "https://www.silvermansound.com/free-music/two-guns-one-destiny",
+    "download": "https://www.free-stock-music.com/music/shane-ivers/mp3/shane-ivers-two-guns-one-destiny.mp3",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sha256": "7e3fd1ea1021fb6c604dbf5d6097cb09d5e0f0064984876b97c93580f00f4952",
+    "bytes": 9623427,
+    "playbackGain": 0.316,
+    "cueSeconds": 0,
+    "loopEdit": "None. Entire original recording loops; runtime crossfades only."
   }
 ]

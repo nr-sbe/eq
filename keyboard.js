@@ -1,7 +1,7 @@
 /* Physical key bindings, focus-safe holds and camera-relative movement. */
 (function(root){
  'use strict';
- const codes=new Set(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','KeyE','KeyC','ShiftLeft','ShiftRight','Tab','KeyM','KeyR','KeyQ','KeyF','Digit1','Digit2','Digit3','Digit4','Digit5','Numpad1','Numpad2','Numpad3','Numpad4','Numpad5']);
+ const codes=new Set(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space','KeyE','KeyC','Tab','KeyM','KeyR','KeyQ','KeyF','Digit1','Digit2','Digit3','Digit4','Digit5','Numpad1','Numpad2','Numpad3','Numpad4','Numpad5']);
  function movement(mx,mz,yaw){const c=Math.cos(yaw),s=Math.sin(yaw);return {mx:-mx*c+mz*s,mz:mz*c+mx*s};}
  class KeyboardControls {
   constructor({host=root,doc=root.document,keys=new Set(),isPlaying,onAction,onEscape,onSuspend,onGesture=()=>{}}){

@@ -44,7 +44,7 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--port',type=int,default=8768);parser.add_argument('--host',default='127.0.0.1');args=parser.parse_args()
     server=ThreadingHTTPServer((args.host,args.port),Handler)
-    print(f'Fivefold: http://127.0.0.1:{args.port}/',flush=True)
+    print(f'Tempest Walker: http://127.0.0.1:{args.port}/',flush=True)
     if args.host=='0.0.0.0':
         for addr in sorted({e[4][0] for e in socket.getaddrinfo(socket.gethostname(),None,socket.AF_INET)}):
             if not addr.startswith('127.'):print(f'Phone on the same Wi-Fi: http://{addr}:{args.port}/',flush=True)

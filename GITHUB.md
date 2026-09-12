@@ -1,10 +1,10 @@
-# Fivefold on GitHub
+# Tempest Walker on GitHub
 
 - Play: **https://nr-sbe.github.io/eq/**
 - Repository: **https://github.com/nr-sbe/eq**
 - Build and deployment history: **https://github.com/nr-sbe/eq/actions**
 
-The complete game is on the repository's `main` branch. GitHub Pages uses the included **Test and publish Fivefold** Actions workflow. A push to `main` runs the tests, creates `dist/`, and deploys the site when checks pass.
+The complete game is on the repository's `main` branch. GitHub Pages uses the included **Test and publish Tempest Walker** Actions workflow. A push to `main` runs the tests, creates `dist/`, and deploys the site when checks pass.
 
 ## Update the game
 
