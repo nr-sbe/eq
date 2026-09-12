@@ -1,10 +1,10 @@
-# Fivefold: Seven Worlds — build 0.10 validation
+# Fivefold: Seven Worlds — build 0.10.1 validation
 
 Tested locally on September 12, 2026. This is a playable campaign prototype, not a claim of finished commercial AAA production quality.
 
 ## Automated checks
 
-`node --test tests/*.test.cjs` passes all **53 reported tests**, including an effects suite with 12 internal checks and a touch suite with 7 internal checks. `python -m unittest discover -s tests -p '*test.py'` passes both server checks. The equivalent Node command is available as `npm test` on a standard Node installation.
+`node --test tests/*.test.cjs` passes all **55 reported tests**, including an effects suite with 12 internal checks and a touch suite with 7 internal checks. `python -m unittest discover -s tests -p '*test.py'` passes both server checks. The equivalent Node command is available as `npm test` on a standard Node installation.
 
 - Campaign: five discoveries, all seven missions, all encounters and route gates, guardian phase changes, Grid Executor relays, mission transitions and the final ending.
 - Progress: save serialization/reload, invalid import rejection, checkpoint death recovery, retained discoveries, 30 specialization points, rank limits, refunds and Demo isolation.
@@ -18,16 +18,16 @@ The automated campaign driver is invulnerable, chooses suitable powers and targe
 
 | Mission | Simulated traversal |
 |---|---:|
-| The Ashen City | 1:47 |
-| Dust and Iron | 1:28 |
-| Neon Underworld | 1:22 |
-| Tomb of the Sun | 1:20 |
-| The Frostbound Citadel | 1:18 |
-| Cathedral of Cinders | 1:12 |
-| The Shattered Heavens | 1:13 |
-| Total | 9:40 |
+| The Ashen City | 1:31 |
+| Dust and Iron | 1:10 |
+| Neon Underworld | 1:04 |
+| Tomb of the Sun | 1:03 |
+| The Frostbound Citadel | 1:01 |
+| Cathedral of Cinders | 0:57 |
+| The Shattered Heavens | 0:57 |
+| Total | 7:43 |
 
-Build 0.9 retains the target of **about 15 minutes for all seven missions combined**. Routes are approximately half their previous length, each encounter has one wave, and enemy, gate and guardian health is reduced. All five discoveries, three encounters per world, two-phase guardians, progression and optional shrines remain. Group attacks and upgraded specializations bring the automated main route to 9:40; reading, upgrades, exploration and retries add time. This establishes mechanical reachability, not a measured human playthrough. A regression check caps the automated main route at 14 minutes and each mission at three minutes. Existing version-one saves were tested at all 42 world/checkpoint combinations, preserving unlocks, completed encounters, upgrades and historical time while mapping to the new checkpoint positions.
+Build 0.9 retains the target of **about 15 minutes for all seven missions combined**. Routes are approximately half their previous length, each encounter has one wave, and enemy, gate and guardian health is reduced. All five discoveries, three encounters per world, two-phase guardians, progression and optional shrines remain. Faster movement, group attacks and upgraded specializations bring the automated main route to 7:43; reading, upgrades, exploration and retries add time. This establishes mechanical reachability, not a measured human playthrough. A regression check caps the automated main route at 14 minutes and each mission at three minutes. Existing version-one saves were tested at all 42 world/checkpoint combinations, preserving unlocks, completed encounters, upgrades and historical time while mapping to the new checkpoint positions.
 
 Additional progression/sword checks cover all 35 element/tier damage combinations, specialization multipliers, retained tiers after guardian completion and death, unique sword trajectories, combo reset, and 6,000 trail updates with bounded geometry. The effects test checks increasing rendered flame/gust counts and water/earth geometry scale. An isolated in-memory save fixture also exercised the real Continue-to-next-world UI: all five elements changed from Tier 1 / 100% to Tier 2 / 120%, with the new-power screen visible. This fixture did not modify the player's campaign save.
 
@@ -38,6 +38,8 @@ The performance observations below predate the compact 0.8 layouts and final swo
 Build 0.9 adds eight checks covering full mastery in one run, retroactive points on older saves, street-wide sequential crystal discovery, all 35 element/tier combinations hitting groups, free aim and tempest coverage, no duplicate direct/chain damage, elemental weaknesses on spells and sword attacks, retained shield/relay protection, and group combat at 30/60/120 FPS. A further effect check confirms visible lightning branches terminate at affected enemy positions while staying within the existing 620-segment buffer. Weakness and group attacks shorten combat; the approximately 15-minute human target is not a measured human result.
 
 Build 0.10 adds six checks for Air critical-hit probabilities (10,000 rolls per tier), actual doubled damage with weaknesses, identical critical outcomes at 30/60/120 FPS, 3,000 updates of bounded element-specific instance pools, the single thunder recipe and playback spacing, and the short whoosh envelope. Lightning hit audio is suppressed so repeated damage cannot add electrical chatter.
+
+Build 0.10.1 colors enemy armor, cloth and illuminated accents from each enemy’s actual weakness, including guardian and drone materials. Running rises from 9 to 13 units/second and dodging from 25 to 34, with a matching run animation cadence. Two additional tests verify exact frame-rate consistency and closed-gate collision while dodging during a long frame.
 
 ## Browser and keyboard checks
 
