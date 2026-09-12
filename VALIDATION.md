@@ -97,6 +97,8 @@ The built `dist/index.html` was also loaded under a nested local URL; Demo Lab, 
 
 ## Remaining acceptance work
 
+Publication follow-up: the game has now been pushed to [nr-sbe/eq](https://github.com/nr-sbe/eq), and [GitHub Actions run 34673896279](https://github.com/nr-sbe/eq/actions/runs/34673896279) passed tests, build and deployment. The playable site is **https://nr-sbe.github.io/eq/**. Public checks returned HTTP 200 for the entry page, campaign/damage scripts, character asset, a photographed texture and the first mission's recording. The published game also loaded in the browser and its Demo controls were exercised without console errors. The earlier statements about local-only validation describe the pre-publication build phase.
+
 - A full human campaign playthrough, including optional shrines and cinematic-action difficulty tuning.
 - Human timing and iteration toward 15–20 minutes in each mission.
 - Real PC-to-phone save-file transfer through browser file pickers; serialization/import validation itself passes tests.

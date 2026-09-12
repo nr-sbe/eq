@@ -106,11 +106,6 @@ npm run build
 - `keyboard.js` / `touch.js`: input ownership and camera-relative movement.
 - `effects.js` / `mastery-fx.js`: bounded elemental presentation.
 - `audio.js`: procedural effects, ambience, streamed recordings and crossfades.
-- `keyboard.js`: focus-safe keyboard controls and camera-relative movement.
-- `keyboard.js`: focus-safe keyboard controls and camera-relative movement.
-- `keyboard.js`: focus-safe keyboard controls and camera-relative movement.
-- `keyboard.js`: focus-safe keyboard controls and camera-relative movement.
-- `touch.js`: independent multitouch input.
 - `assets/audio/`: licensed recordings and a source/hash manifest.
 - `tests/`: campaign, combat, resource lifecycle and touch regression checks.
 
