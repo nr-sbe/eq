@@ -1,0 +1,60 @@
+[
+  {
+    "file": "asian-drums.mp3",
+    "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Asian%20Drums.mp3",
+    "bytes": 5662938,
+    "sha256": "c715f9f9af67505447e8083f50206799ec8563157aab6fdc80e7672698cc8a7d"
+  },
+  {
+    "file": "scarab.mp3",
+    "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Curse%20of%20the%20Scarab.mp3",
+    "bytes": 10473824,
+    "sha256": "e1c825715a8e0e58eb7bf308438df68bcd2b9caf5df84d397e0466bcba89e193"
+  },
+  {
+    "file": "ai-fight.ogg",
+    "url": "https://opengameart.org/sites/default/files/ai_fight_120bpm.ogg",
+    "bytes": 15136131,
+    "sha256": "c2023138579f6fb99b238fffc562d927a9712db04fdbd4a0a6ab6e8bf64d988a"
+  },
+  {
+    "file": "machina.mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/9c/Scott_Buckley_-_Machina.oga/Scott_Buckley_-_Machina.oga.mp3",
+    "mirror": "https://commons.wikimedia.org/wiki/File:Scott_Buckley_-_Machina.oga",
+    "bytes": 7891638,
+    "sha256": "caab571953e7999e929d6df92ae74c65b509fc2d98e3f46c6055b384557778a4"
+  },
+  {
+    "file": "legionnaire.mp3",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f8/Scott_Buckley_-_Legionnaire_%28ORIGINAL_VERSION%29.oga/Scott_Buckley_-_Legionnaire_%28ORIGINAL_VERSION%29.oga.mp3",
+    "mirror": "https://commons.wikimedia.org/wiki/File:Scott_Buckley_-_Legionnaire_%28ORIGINAL_VERSION%29.oga",
+    "bytes": 4564051,
+    "sha256": "b21e4341ce23c5db40727a0a70a7a79ebb2427998e00411ca185f4e4fd3f1445"
+  },
+  {
+    "file": "ascension.mp3",
+    "url": "https://www.free-stock-music.com/music/scott-buckley/mp3/scott-buckley-ascension.mp3",
+    "mirror": "https://www.free-stock-music.com/scott-buckley-ascension.html",
+    "bytes": 14853414,
+    "sha256": "72cce153866fbb5b0c5d8ffb0be2ea73bf64190e2b70a50cbcc8c83b5a8e0dbf"
+  },
+  {
+    "file": "long-dark.mp3",
+    "url": "https://www.free-stock-music.com/music/scott-buckley/mp3/scott-buckley-the-long-dark.mp3",
+    "mirror": "https://www.free-stock-music.com/scott-buckley-the-long-dark.html",
+    "bytes": 17595203,
+    "sha256": "fa5bfe904dd4902b9eb66d8df518a91adde41fb6d1687aefb5af1a2de7da28da"
+  },
+  {
+    "file": "old-ones.ogg",
+    "url": "https://commons.wikimedia.org/wiki/File:Scott_Buckley_-_The_Old_Ones.oga",
+    "bytes": 5747637,
+    "sha256": "0e22e3526e5cb185502439c0d44730a6f80d8e8b43e2ea4a3297bfd37a19224b"
+  },
+  {
+    "file": "western.mp3",
+    "url": "https://opengameart.org/content/spaghetti-western-theme-orchestral",
+    "bytes": 4139048,
+    "sha256": "626243d8ed0ce320259453d2903feb0ee972121995a81bfc413b2dcea209d484"
+  }
+]

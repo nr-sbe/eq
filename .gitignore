@@ -1,0 +1,9 @@
+dist/
+node_modules/
+__pycache__/
+.DS_Store
+Thumbs.db
+*.log
+fivefold-progress*.json
+.env
+.env.*

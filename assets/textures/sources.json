@@ -1,0 +1,86 @@
+[
+  {
+    "file": "stone-color.jpg",
+    "source": "https://polyhaven.com/a/cobblestone_floor_001",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cobblestone_floor_001/cobblestone_floor_001_diff_1k.jpg",
+    "license": "CC0",
+    "sha256": "893d3e7b4506c5935cbc6aca5b914d637bd4464484bcaa5d69e2ee205bb9ae9c"
+  },
+  {
+    "file": "stone-normal.jpg",
+    "source": "https://polyhaven.com/a/cobblestone_floor_001",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cobblestone_floor_001/cobblestone_floor_001_nor_gl_1k.jpg",
+    "license": "CC0",
+    "sha256": "f5c92ea5f9d09c35fee6f75884f4496a61a08ac0a1fe427d5a1ae7d1e15c4280"
+  },
+  {
+    "file": "stone-rough.jpg",
+    "source": "https://polyhaven.com/a/cobblestone_floor_001",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cobblestone_floor_001/cobblestone_floor_001_rough_1k.jpg",
+    "license": "CC0",
+    "sha256": "ac7cfc342f9d13b5dff1972200daaf864fbdf5455a2ed2da96491b823f411f36"
+  },
+  {
+    "file": "wood-color.jpg",
+    "source": "https://polyhaven.com/a/weathered_planks",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/weathered_planks/weathered_planks_diff_1k.jpg",
+    "license": "CC0",
+    "sha256": "01c9a372cfd7a7bf471b59c2458ed3ccecc93448aebf7ba0cc5b3b5b6ed24349"
+  },
+  {
+    "file": "wood-normal.jpg",
+    "source": "https://polyhaven.com/a/weathered_planks",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/weathered_planks/weathered_planks_nor_gl_1k.jpg",
+    "license": "CC0",
+    "sha256": "381d298f3194ec4961b04b4912b9b6efea4b2ff7b914dac57e24c8b6b0be6a25"
+  },
+  {
+    "file": "wood-rough.jpg",
+    "source": "https://polyhaven.com/a/weathered_planks",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/weathered_planks/weathered_planks_rough_1k.jpg",
+    "license": "CC0",
+    "sha256": "a017728183597417a350d1846a5a46db9702ee6d472a21c5da2f23015d606aa3"
+  },
+  {
+    "file": "dirt-color.jpg",
+    "source": "https://polyhaven.com/a/brown_mud",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_mud/brown_mud_diff_1k.jpg",
+    "license": "CC0",
+    "sha256": "df3f135c899f10a3b018738343b222cbc67d13e7c76c5d8da834a3d34c984417"
+  },
+  {
+    "file": "dirt-normal.jpg",
+    "source": "https://polyhaven.com/a/brown_mud",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_mud/brown_mud_nor_gl_1k.jpg",
+    "license": "CC0",
+    "sha256": "ac517ca39eb507ae0f27e2b3db431c60888f9b5c3c52bec49d2c0775da0920cb"
+  },
+  {
+    "file": "dirt-rough.jpg",
+    "source": "https://polyhaven.com/a/brown_mud",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brown_mud/brown_mud_rough_1k.jpg",
+    "license": "CC0",
+    "sha256": "ae9fb57c1173ccb4579f40edf8321a30bdca815042ffd72015a2a707c7e2e7ba"
+  },
+  {
+    "file": "sand-color.jpg",
+    "source": "https://polyhaven.com/a/aerial_sand",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_sand/aerial_sand_diff_1k.jpg",
+    "license": "CC0",
+    "sha256": "d5195c44aec087d2a30d3ca3a3fa3458a1898986e0572e9a8043f8245598557a"
+  },
+  {
+    "file": "sand-normal.jpg",
+    "source": "https://polyhaven.com/a/aerial_sand",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_sand/aerial_sand_nor_gl_1k.jpg",
+    "license": "CC0",
+    "sha256": "cba74d670a681dfcdd72db72afbcb9879c7ec9f5854adae24cac8da2c432ad99"
+  },
+  {
+    "file": "sand-rough.jpg",
+    "source": "https://polyhaven.com/a/aerial_sand",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_sand/aerial_sand_rough_1k.jpg",
+    "license": "CC0",
+    "sha256": "7cccecb1d8d35a5404e1006688e3bd2b6675abe3c95ff26312a872a41d792897"
+  }
+]
