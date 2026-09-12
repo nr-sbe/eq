@@ -74,7 +74,7 @@
    for(const [material,geos] of batches){let count=0;for(const g of geos)count+=g.attributes.position.count;const p=new Float32Array(count*3),n=new Float32Array(count*3);let offset=0;for(const g of geos){p.set(g.attributes.position.array,offset);n.set(g.attributes.normal.array,offset);offset+=g.attributes.position.array.length;g.dispose();}const merged=this.geometry(new T.BufferGeometry());merged.setAttribute('position',new T.BufferAttribute(p,3));merged.setAttribute('normal',new T.BufferAttribute(n,3));this.mesh(merged,material,body);}
    const spray=new T.InstancedMesh(this.geometry(new T.SphereGeometry(.1,6,4)),foam,90);spray.instanceMatrix.setUsage(T.DynamicDrawUsage);spray.frustumCulled=false;body.add(spray);
    const wash=this.mesh(this.geometry(new T.CircleGeometry(1,48)),this.material('#b5d4cb',.3),body,0,.035,0);wash.rotation.x=-Math.PI/2;wash.scale.set(8.5,3.2,1);
-   body.rotation.y=-Math.PI/2;body.scale.set(.72,1,3.1);body.position.z=5.75;root.visible=false;return {root,body,spray,sprayDummy:new T.Object3D(),el:3};
+   body.rotation.y=0;body.scale.set(1.2,1,1.15);body.position.z=2.5;root.visible=false;return {root,body,spray,sprayDummy:new T.Object3D(),el:3};
   }
   makeEarth(){
    const root=this.group(),columns=[],seams=this.material('#e6bd6a'),stone=this.material('#63584b'),side=this.material('#a08a67'),dust=this.material('#a78d69',.22);

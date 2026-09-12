@@ -43,13 +43,14 @@
    this.layer({noise:true,white:true,filter:'bandpass',cutoff:900,endCutoff:3200,q:.35,duration:.65,volume:.07,attack:.25});
   }
   cast(el,ultimate=false,pan=0){
-   const c=this.context;if(!c||!this.enabled)return;const now=c.currentTime;if(now-this.last[el]<[.48,.32,.26,.72,.48][el])return;this.last[el]=now;const v=ultimate?1.2:1;
+   const c=this.context;if(!c||!this.enabled)return;const now=c.currentTime;if(now-this.last[el]<[.48,.32,1.1,.72,.48][el])return;this.last[el]=now;const v=ultimate?1.2:1;
    const n=o=>this.layer({noise:true,volume:.25*v,pan,...o});
    if(el===0){
-    // A broad rushing gust: turbulent air only, with no pitched whistle.
-    n({white:true,filter:'bandpass',cutoff:320,endCutoff:1700,q:.35,duration:1.35,attack:.22,volume:.68*v});
-    n({white:true,filter:'lowpass',cutoff:2400,endCutoff:450,duration:1.1,attack:.3,volume:.22*v,pan:-pan});
-    n({cutoff:330,endCutoff:90,duration:1.25,attack:.18,volume:.38*v});
+    // A fast pressure sweep followed by a short turbulent air tail.
+    n({white:true,filter:'bandpass',cutoff:900,endCutoff:3100,q:.4,duration:.5,attack:.045,volume:.8*v});
+    n({white:true,cutoff:4200,endCutoff:550,duration:.65,attack:.085,volume:.5*v,pan:-pan});
+    n({cutoff:380,endCutoff:100,duration:.55,attack:.045,volume:.35*v});
+    n({white:true,filter:'highpass',cutoff:1100,endCutoff:2600,duration:.5,delay:.1,attack:.07,volume:.12*v});
    }else if(el===1){
     // Heavy ignition, a rolling combustion roar, and irregular dry crackles.
     n({cutoff:260,endCutoff:85,duration:.65,attack:.012,volume:.68*v});
@@ -58,11 +59,11 @@
     for(let i=0;i<5;i++){const delay=.06+i*.09+Math.random()*.035;n({white:true,filter:'bandpass',cutoff:700+Math.random()*800,endCutoff:350,q:.45,duration:.15+Math.random()*.12,attack:.025,delay,volume:(.09+Math.random()*.09)*v});}
     for(let i=0;i<11;i++)n({white:true,filter:'highpass',cutoff:1700+Math.random()*1700,endCutoff:1100,duration:.012+Math.random()*.023,attack:.001,delay:Math.random()*.65,volume:(.035+Math.random()*.085)*v,pan:Math.max(-1,Math.min(1,pan+(Math.random()-.5)*.5))});
    }else if(el===2){
-    // Sharp electrical snaps accompany the storm forks; low thunder follows.
-    n({white:true,filter:'highpass',cutoff:2300,endCutoff:550,duration:.2,attack:.001,volume:.4*v});
-    for(let i=0;i<7;i++)n({white:true,filter:'bandpass',cutoff:2000+Math.random()*4700,q:1.3,duration:.012+Math.random()*.03,delay:i*.026,attack:.001,volume:.18*v});
-    this.layer({type:'sawtooth',from:95,to:58,duration:.16,volume:.065*v,cutoff:2100,attack:.002,pan});
-    n({cutoff:200,endCutoff:65,duration:2.35,delay:.24,attack:.11,volume:.65*v});
+    // A single thunder clap with a chesty body and rolling low-frequency decay.
+    n({white:true,cutoff:2400,endCutoff:350,duration:.19,attack:.002,volume:.95*v});
+    n({white:true,filter:'bandpass',cutoff:580,endCutoff:140,q:.35,duration:.75,attack:.009,volume:.7*v});
+    n({cutoff:230,endCutoff:45,duration:2.6,delay:.035,attack:.035,volume:.82*v});
+    n({cutoff:140,endCutoff:55,duration:1.8,delay:.25,attack:.17,volume:.28*v,pan:-pan});
    }else if(el===3){
     // A beach breaker: a slow body, a broad crash and a long receding hiss.
     n({cutoff:380,endCutoff:110,duration:2.1,attack:.35,volume:.68*v});
@@ -75,7 +76,7 @@
     for(let i=0;i<10;i++)n({white:true,filter:'bandpass',cutoff:450+Math.random()*1600,q:2.5,duration:.035+Math.random()*.07,delay:i*.045,attack:.002,volume:(.07+Math.random()*.1)*v});
    }
   }
-  impact(el){if(!this.context||this.context.currentTime-this.lastImpact<.12)return;this.lastImpact=this.context.currentTime;this.layer({noise:true,white:true,filter:'bandpass',cutoff:[1800,600,3200,1400,400][el],duration:.15,volume:.11,attack:.003});}
+  impact(el){if(el===2)return;if(!this.context||this.context.currentTime-this.lastImpact<.12)return;this.lastImpact=this.context.currentTime;this.layer({noise:true,white:true,filter:'bandpass',cutoff:[1800,600,3200,1400,400][el],duration:.15,volume:.11,attack:.003});}
  }
  window.ElementAudio=ElementAudio;
 })();

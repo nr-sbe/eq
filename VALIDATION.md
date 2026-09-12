@@ -1,10 +1,10 @@
-# Fivefold: Seven Worlds — build 0.9 validation
+# Fivefold: Seven Worlds — build 0.10 validation
 
 Tested locally on September 12, 2026. This is a playable campaign prototype, not a claim of finished commercial AAA production quality.
 
 ## Automated checks
 
-`node --test tests/*.test.cjs` passes all **47 reported tests**, including an effects suite with 12 internal checks and a touch suite with 7 internal checks. `python -m unittest discover -s tests -p '*test.py'` passes both server checks. The equivalent Node command is available as `npm test` on a standard Node installation.
+`node --test tests/*.test.cjs` passes all **53 reported tests**, including an effects suite with 12 internal checks and a touch suite with 7 internal checks. `python -m unittest discover -s tests -p '*test.py'` passes both server checks. The equivalent Node command is available as `npm test` on a standard Node installation.
 
 - Campaign: five discoveries, all seven missions, all encounters and route gates, guardian phase changes, Grid Executor relays, mission transitions and the final ending.
 - Progress: save serialization/reload, invalid import rejection, checkpoint death recovery, retained discoveries, 30 specialization points, rank limits, refunds and Demo isolation.
@@ -36,6 +36,8 @@ The new sword animation was inspected in the live Demo rehearsal, including its 
 The performance observations below predate the compact 0.8 layouts and final sword and damage-number polish; the trail adds one pooled mesh of at most 138 triangles and the numbers use up to 48 reused DOM labels. Their lifecycles are tested, but no new controlled performance benchmark is claimed.
 
 Build 0.9 adds eight checks covering full mastery in one run, retroactive points on older saves, street-wide sequential crystal discovery, all 35 element/tier combinations hitting groups, free aim and tempest coverage, no duplicate direct/chain damage, elemental weaknesses on spells and sword attacks, retained shield/relay protection, and group combat at 30/60/120 FPS. A further effect check confirms visible lightning branches terminate at affected enemy positions while staying within the existing 620-segment buffer. Weakness and group attacks shorten combat; the approximately 15-minute human target is not a measured human result.
+
+Build 0.10 adds six checks for Air critical-hit probabilities (10,000 rolls per tier), actual doubled damage with weaknesses, identical critical outcomes at 30/60/120 FPS, 3,000 updates of bounded element-specific instance pools, the single thunder recipe and playback spacing, and the short whoosh envelope. Lightning hit audio is suppressed so repeated damage cannot add electrical chatter.
 
 ## Browser and keyboard checks
 
@@ -70,22 +72,24 @@ Resource counts decreased after departing a busy world. Tier 7 water used five p
 
 **The 60 FPS high-quality target is not met in every tested scene on Iris Xe.** Reduced quality reached 60 FPS in the sampled combat scenes. **30 FPS on a representative physical phone remains unverified.**
 
+Build 0.10 enlarged-character and Tier 7 air checks at 761×791 showed about 58 FPS at high quality and 60 FPS at reduced quality on the same Iris Xe adapter, with 119 geometries. These are live observations with cleared enemies, not comparable combat benchmarks. A transient blank frame occurred after automatic quality reduction; explicit high and reduced settings rendered correctly afterward. Physical phone performance remains unverified.
+
 ## Audio checks
 
-The browser audio harness rendered seven seconds of repeated effects into stereo OfflineAudioContext at 44.1 kHz. Default effects gains were used; all samples were finite, no samples clipped, mute was silent, and scheduled voices retired. Representative randomized synthesis results:
+The build 0.10 browser audio harness rendered seven seconds of repeated effects into stereo OfflineAudioContext at 44.1 kHz. Default effects gains were used; all samples were finite, no samples clipped, mute was silent, and scheduled voices retired. Representative randomized synthesis results:
 
 | Sound | Peak amplitude | RMS | Clipped samples |
 |---|---:|---:|---:|
-| Air | 0.4983 | 0.0566 | 0 |
-| Fire | 0.6860 | 0.0832 | 0 |
-| Lightning | 0.6281 | 0.1034 | 0 |
-| Water | 0.6986 | 0.0931 | 0 |
-| Earth | 0.7219 | 0.0865 | 0 |
-| Orb awakening | 0.0983 | 0.0087 | 0 |
-| Repeated thunder | 0.6194 | 0.1051 | 0 |
+| Air | 0.4776 | 0.0569 | 0 |
+| Fire | 0.6759 | 0.0874 | 0 |
+| Lightning | 0.6503 | 0.1097 | 0 |
+| Water | 0.6856 | 0.0911 | 0 |
+| Earth | 0.6339 | 0.0870 | 0 |
+| Orb awakening | 0.1004 | 0.0087 | 0 |
+| Repeated thunder | 0.6242 | 0.1047 | 0 |
 | Muted | 0 | 0 | 0 |
 
-All nine recordings decoded successfully as stereo: Asian Drums 138.55 s, Western 172.39 s, Machina 290.90 s, AI Fight 268.01 s, Scarab 327.24 s, The Long Dark 439.79 s, Legionnaire 184.00 s, The Old Ones 302.07 s and Ascension 371.25 s. Runtime stream counts were checked through world transitions.
+All nine recordings decoded successfully in the earlier full recording check; the 0.10 rerun decoded the first eight before its tab was closed. Recordings are unchanged and continue to pass their hash checks. Earlier full results as stereo: Asian Drums 138.55 s, Western 172.39 s, Machina 290.90 s, AI Fight 268.01 s, Scarab 327.24 s, The Long Dark 439.79 s, Legionnaire 184.00 s, The Old Ones 302.07 s and Ascension 371.25 s. Runtime stream counts were checked through world transitions.
 
 The offline peak test covers effects separately from music. Full music-plus-effects loudness, perceptual soundtrack fit, every loop seam and phone-speaker listening still require auditioning. Selection and attribution records are in `ASSET-CREDITS.md`.
 

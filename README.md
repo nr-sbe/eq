@@ -76,6 +76,10 @@ Enemy health loss produces floating, element-colored damage numbers. Rapid hits 
 
 Regular casts hit groups from Tier 1: widening air/fire fronts, a broad water lane, an earth corridor and clustered lightning. Tempests cover a wider area. Cover and closed gates block attacks. Every enemy has an elemental weakness shown below its target marker: **+50% damage**, including infused sword attacks. Shield guards are weak to Earth, ranged units to Air, supports to Lightning, melee variants to Fire or Water, and each guardian has a setting-specific weakness. Grid Executor relay protection remains intact.
 
+Air has a **25% critical-hit chance at Tier 1**, increasing by 2.5 percentage points per tier to **40% at Tier 7**. Critical hits deal **2× damage**, stack with elemental weaknesses, and use larger, brighter whole-number damage labels. The simulation controls critical rolls consistently across frame rates.
+
+The action presentation includes slicing air crescents, fire eruptions and flying embers, foam wakes and undertow around the Great Wave, branching thunder strikes, and outward rock fractures. Air uses a quick whoosh; lightning uses a single thunder-clap attack with a low rolling tail, with no electrical impact chatter. The protagonist and regular enemies are 45% larger, guardian scale is increased proportionately, and camera aim, sword reach and target labels accommodate the new proportions.
+
 ## Progress, replay and demo
 
 **New Game** starts a fresh campaign; a second click confirms replacing an existing save. **Continue** resumes the latest checkpoint. Progress saves on checkpoints, element discoveries, specializations and mission completion. Death restores the checkpoint and keeps earned progression.
@@ -106,7 +110,7 @@ npm run build
 - `sword-motion.js`: three-strike choreography and the bounded blade trail.
 - `damage-numbers.js`: pooled health-loss feedback above enemies.
 - `keyboard.js` / `touch.js`: input ownership and camera-relative movement.
-- `effects.js` / `mastery-fx.js`: bounded elemental presentation.
+- `effects.js` / `mastery-fx.js` / `impact-fx.js`: bounded elemental presentation.
 - `audio.js`: procedural effects, ambience, streamed recordings and crossfades.
 - `assets/audio/`: licensed recordings and a source/hash manifest.
 - `tests/`: campaign, combat, resource lifecycle and touch regression checks.
