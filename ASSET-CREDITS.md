@@ -65,3 +65,5 @@ Two Guns, One Destiny by Shane Ivers | https://www.silvermansound.com. Royalty F
 Every cue begins at 0 seconds on world entry. Full recordings loop without destructive edits. Linear playback trims are recorded in `assets/audio/sources.json`; these were adjusted using measured first-minute RMS to limit abrupt level changes. Runtime music is multiplied by the user slider, 0.48 bus gain and 0.62 master gain, with an output compressor. Repeated encounters resume the paused cue. Subjective pairing and loop-boundary audition remain listening checks.
 
 The Art Deco metropolis, Meridian Tower, rain garden, courtyard trees, reactive cloth, temporary cover, and scenery effects are original procedural game content. They do not reproduce a named real-world building or copyrighted character.
+
+The Home Screen app icon (`assets/app-icon.png`), elemental sword accents and palm-socket grip animation are original game artwork/code.

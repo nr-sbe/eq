@@ -20,10 +20,10 @@
  class SwordTrail{
   constructor(scene){const T=root.THREE;this.T=T;this.samples=[];this.capacity=24;this.positions=new Float32Array(24*2*3);this.colors=new Float32Array(24*2*3);this.geometry=new T.BufferGeometry();this.geometry.setAttribute('position',new T.BufferAttribute(this.positions,3).setUsage(T.DynamicDrawUsage));this.geometry.setAttribute('color',new T.BufferAttribute(this.colors,3).setUsage(T.DynamicDrawUsage));const indices=[];for(let i=0;i<23;i++){const a=i*2;indices.push(a,a+1,a+2,a+1,a+3,a+2);}this.geometry.setIndex(indices);this.material=new T.MeshBasicMaterial({vertexColors:true,transparent:true,opacity:.82,side:T.DoubleSide,depthWrite:false,blending:T.AdditiveBlending});this.mesh=new T.Mesh(this.geometry,this.material);this.mesh.frustumCulled=false;this.mesh.visible=false;scene.add(this.mesh);}
   update(time,segment,active,element,combo,gentle){const T=this.T;if(combo!==this.combo&&active){this.samples=[];this.combo=combo;}const life=combo===3?.22:.16;this.samples=this.samples.filter(s=>time-s.time<life);
-   if(active&&segment){this.samples.push({time,base:segment.base.clone(),tip:segment.tip.clone()});if(this.samples.length>this.capacity)this.samples.shift();}
-   const color=new T.Color(['#cdeee0','#ff9134','#b58aff','#79dced','#dbb477'][element]||'#bdd9e0');
-   this.samples.forEach((s,i)=>{const fade=1-(time-s.time)/life;for(let j=0;j<2;j++){const v=j?s.tip:s.base,k=(i*2+j)*3;this.positions[k]=v.x;this.positions[k+1]=v.y;this.positions[k+2]=v.z;const c=color.clone().lerp(new T.Color('#ffffff'),j?.6:0).multiplyScalar(fade*(j?1:.14));this.colors[k]=c.r;this.colors[k+1]=c.g;this.colors[k+2]=c.b;}});
-   this.geometry.setDrawRange(0,Math.max(0,this.samples.length-1)*6);this.geometry.attributes.position.needsUpdate=true;this.geometry.attributes.color.needsUpdate=true;this.material.opacity=gentle?.48:.82;this.mesh.visible=this.samples.length>1;
+   if(active&&segment){this.samples.push({time,base:segment.base.clone(),tip:segment.tip.clone(),element});if(this.samples.length>this.capacity)this.samples.shift();}
+   const palette=['#cdeee0','#ff9134','#b58aff','#79dced','#dbb477'];
+   this.samples.forEach((s,i)=>{const color=new T.Color(palette[s.element]||'#bdd9e0'),fade=1-(time-s.time)/life;for(let j=0;j<2;j++){const v=j?s.tip:s.base,k=(i*2+j)*3;this.positions[k]=v.x;this.positions[k+1]=v.y;this.positions[k+2]=v.z;const c=color.clone().lerp(new T.Color('#ffffff'),j?.18:0).multiplyScalar(fade*(j?1:.14));this.colors[k]=c.r;this.colors[k+1]=c.g;this.colors[k+2]=c.b;}});
+   this.geometry.setDrawRange(0,Math.max(0,this.samples.length-1)*6);this.geometry.attributes.position.needsUpdate=true;this.geometry.attributes.color.needsUpdate=true;this.material.opacity=gentle?.34:.6;this.mesh.visible=this.samples.length>1;
   }
   reset(){this.samples=[];this.mesh.visible=false;this.geometry.setDrawRange(0,0);}
   dispose(){this.mesh.removeFromParent();this.geometry.dispose();this.material.dispose();}

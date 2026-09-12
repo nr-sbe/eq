@@ -1,0 +1,18 @@
+{
+  "id": "./",
+  "name": "Tempest Walker: Storm of Ruins",
+  "short_name": "Tempest Walker",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "background_color": "#11171c",
+  "theme_color": "#11171c",
+  "icons": [
+    {
+      "src": "assets/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

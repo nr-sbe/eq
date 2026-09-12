@@ -131,3 +131,11 @@ Sword damage follows the active blade sweep, once per target per strike. A succe
 All seven worlds and the showcase use separate exploration/combat recordings. Combat fades in over 2.5 seconds. After an encounter clears, a six-second quiet interval precedes the four-second return. Interrupted fades reverse, cue positions are retained, and failed loads leave the current cue audible while retrying. Pausing stops the clear timer and preserves track position. Sources, gains, and uncut loop records accompany the assets.
 
 Additional modules: `combat-system.js` owns sword contacts and environmental interactions; `music-director.js` owns resumable music transitions; `world-detail.js` owns bounded reactive scenery; `art-deco.js` builds the seventh world's architecture; `showcase.js` is loaded on showcase entry. Saves migrate to version 2 while preserving the original storage key and URLs.
+
+### Fullscreen on phones
+
+Tap **FULLSCREEN** on the main menu, in-game HUD, or pause settings. Supported browsers enter fullscreen with the game and touch controls together; tap **EXIT FULLSCREEN** to leave. Where browser fullscreen is unavailable, the button shows Home Screen instructions. On iPhone/iPad, use Safari → Share → Add to Home Screen, enabling Open as Web App if offered, then open the game icon. On Android, use Install app or Add to Home screen. Export your save before switching to a Home Screen app and import it there if needed; browser storage may differ. The game still requires a network connection to load assets.
+
+### Elemental sword
+
+The selected element enchants the blade: cutting wind rings, flame tongues and embers, purple lightning branches, water crests and foam, or heaving stone shards. Confirmed sword hits apply that element's existing effects, including burn, paralysis, water marks/healing and earth interruption. Swings retain their starting element when switching mid-combo. The hilt is attached to the animated hand's palm socket throughout movement, sword combos and offhand casting.

@@ -7,7 +7,7 @@
  P.disableEnemy=function(e,duration){if(e.role==='boss'||this.time<(e.status.controlReady||0))return false;e.status.stun=this.time+duration;e.status.controlReady=e.status.stun+1;e.cooldown=Math.max(e.cooldown,.7);this.telegraphs=this.telegraphs.filter(t=>t.owner!==e.id);e.attackUntil=0;this.event('interrupt',{id:e.id,x:e.x,z:e.z});return true;};
  P.beginSword=function(target){if(this.pendingSword)return false;const p=this.player,el=this.element,tier=this.tier,spec={...this.specs[el]};if(this.time>this.comboExpiry)this.combo=0;this.combo=this.combo%3+1;this.comboExpiry=this.time+.9;this.swordDuration=[0,.34,.36,.48][this.combo];this.swordAnim=this.swordDuration;
   let dx=target?target.x-p.x:p.dx,dz=target?target.z-p.z:p.dz,d=Math.hypot(dx,dz)||1;dx/=d;dz/=d;p.dx=dx;p.dz=dz;
-  const a=this.pendingSword={id:++this.attackId,start:this.time,duration:this.swordDuration,combo:this.combo,element:el,tier,spec,dx,dz,critical:this.rollCritical(),hit:new Set(),lastProgress:.18};this.swordElement=el;
+  const a=this.pendingSword={id:++this.attackId,start:this.time,duration:this.swordDuration,combo:this.combo,element:el,tier,spec,dx,dz,critical:this.rollCritical(),hit:new Set(),lastProgress:.18};this.swordElement=el;this.swordTier=tier;
   this.event('sword',{attackId:a.id,combo:a.combo,element:el,tier,dx,dz,x:p.x,y:p.y,z:p.z});return true;
  };
  P.swordStep=function(){const a=this.pendingSword;if(!a)return;const u=(this.time-a.start)/a.duration;if(u<.18)return;const p=this.player,end=Math.min(.66,u),begin=a.lastProgress;
