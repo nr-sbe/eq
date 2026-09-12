@@ -1,7 +1,7 @@
 /* Procedural effects and an embedded licensed orchestral recording. See ASSET-CREDITS.md. */
 (()=>{
  class ElementAudio{
-  constructor(){this.context=null;this.voices=0;this.effectsVolume=.75;this.musicVolume=.55;this.decks=[];this.musicFile=null;this.desiredMusic=null;this.ambienceAt=0;this.enabled=true;this.last=Array(5).fill(-99);this.lastImpact=-99;this.musicEnabled=true;this.musicBuffer=null;this.musicError=null;this.musicPlaying=false;this.strings=new Map();}
+  constructor(){this.context=null;this.thunderBuffer=null;this.thunderLoading=null;this.thunderVoices=[];this.voices=0;this.effectsVolume=.75;this.musicVolume=.55;this.decks=[];this.musicFile=null;this.desiredMusic=null;this.ambienceAt=0;this.enabled=true;this.last=Array(5).fill(-99);this.lastImpact=-99;this.musicEnabled=true;this.musicBuffer=null;this.musicError=null;this.musicPlaying=false;this.strings=new Map();}
   start(){
    if(!this.context){try{const c=this.context=new(window.AudioContext||window.webkitAudioContext)();
     this.master=c.createGain();this.master.gain.value=.62;
@@ -11,8 +11,15 @@
     this.noise=c.createBuffer(1,c.sampleRate*2,c.sampleRate);const data=this.noise.getChannelData(0);let brown=0;for(let i=0;i<data.length;i++){brown=(brown+(Math.random()*2-1)*.08)/1.02;data[i]=brown*3;}
     this.white=c.createBuffer(1,c.sampleRate*2,c.sampleRate);const white=this.white.getChannelData(0);for(let i=0;i<white.length;i++)white[i]=Math.random()*2-1;
    }catch{return;}}
+   this.loadThunder();
    if(this.context.state==='suspended')this.context.resume();
    if(this.desiredMusic&&this.musicFile!==this.desiredMusic)this.setTrack(this.desiredMusic);
+  }
+  loadThunder(){if(this.thunderLoading)return this.thunderLoading;if(!this.context)return Promise.resolve();this.thunderLoading=fetch('assets/effects/lightning-impact.wav').then(r=>{if(!r.ok)throw Error('Thunder asset unavailable');return r.arrayBuffer();}).then(bytes=>this.context.decodeAudioData(bytes)).then(buffer=>{this.thunderBuffer=buffer;}).catch(()=>{this.thunderLoading=null;});return this.thunderLoading;}
+  playThunder(volume,pan){const c=this.context;if(!this.thunderBuffer||!c||c.state!=='running'||!this.enabled||this.voices>=180)return false;
+   while(this.thunderVoices.length>=2){const old=this.thunderVoices.shift();old.gain.gain.cancelScheduledValues(c.currentTime);old.gain.gain.setTargetAtTime(.0001,c.currentTime,.012);old.source.stop(c.currentTime+.045);}
+   const source=c.createBufferSource(),gain=c.createGain(),panner=c.createStereoPanner(),voice={source,gain,panner};source.buffer=this.thunderBuffer;source.playbackRate.value=.97+Math.random()*.06;gain.gain.value=.92*volume;panner.pan.value=pan;source.connect(gain);gain.connect(panner);panner.connect(this.effectsBus);this.thunderVoices.push(voice);this.voices++;
+   source.onended=()=>{this.voices--;this.thunderVoices=this.thunderVoices.filter(v=>v!==voice);source.disconnect();gain.disconnect();panner.disconnect();};source.start(c.currentTime);return true;
   }
   setEnabled(enabled){this.enabled=enabled;if(this.master)this.master.gain.setTargetAtTime(enabled?.62:0,this.context.currentTime,.025);if(enabled)this.start();}
   layer({noise=false,white=false,type='sine',from=100,to=40,duration=.4,volume=.1,filter='lowpass',cutoff=1000,endCutoff=cutoff,q=.7,pan=0,delay=0,attack=.015,music=false,vibrato=0}){
@@ -43,7 +50,8 @@
    this.layer({noise:true,white:true,filter:'bandpass',cutoff:900,endCutoff:3200,q:.35,duration:.65,volume:.07,attack:.25});
   }
   cast(el,ultimate=false,pan=0){
-   const c=this.context;if(!c||!this.enabled)return;const now=c.currentTime;if(now-this.last[el]<[.48,.32,1.1,.72,.48][el])return;this.last[el]=now;const v=ultimate?1.2:1;
+   const c=this.context;if(!c||!this.enabled)return;const now=c.currentTime;if(now-this.last[el]<[.48,.32,.7,.72,.48][el])return;this.last[el]=now;const v=ultimate?1.2:1;
+   if(el===2&&this.playThunder(v,pan))return;
    const n=o=>this.layer({noise:true,volume:.25*v,pan,...o});
    if(el===0){
     // A fast pressure sweep followed by a short turbulent air tail.

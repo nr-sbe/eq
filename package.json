@@ -1,6 +1,6 @@
 {
   "name": "fivefold-seven-worlds",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "private": true,
   "description": "A static Three.js elemental action campaign for desktop and touch browsers",
   "scripts": {

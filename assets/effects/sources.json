@@ -1,0 +1,14 @@
+[
+  {
+    "file": "lightning-impact.wav",
+    "author": "Jerimee",
+    "title": "Thunder",
+    "license": "CC BY 3.0",
+    "source": "https://opengameart.org/content/thunder",
+    "download": "https://opengameart.org/sites/default/files/thunder-seq.wav",
+    "source_sha256": "eab85a5880092668026264e356953169a24e2d12f956b255b5090e9162f4722d",
+    "sha256": "a907115291b77d045ea10f03067450b81fe3e6975716bd7b15ca6d85bff231c8",
+    "seconds": 1.45,
+    "modifications": "Excerpt at 1.505 seconds, mono mix, parallel pitch layer, high/low pass EQ, transient compression, short exponential decay, added sub impact, peak normalized to 0.89."
+  }
+]

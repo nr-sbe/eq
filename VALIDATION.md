@@ -1,10 +1,10 @@
-# Fivefold: Seven Worlds — build 0.10.1 validation
+# Fivefold: Seven Worlds — build 0.10.2 validation
 
 Tested locally on September 12, 2026. This is a playable campaign prototype, not a claim of finished commercial AAA production quality.
 
 ## Automated checks
 
-`node --test tests/*.test.cjs` passes all **55 reported tests**, including an effects suite with 12 internal checks and a touch suite with 7 internal checks. `python -m unittest discover -s tests -p '*test.py'` passes both server checks. The equivalent Node command is available as `npm test` on a standard Node installation.
+`node --test tests/*.test.cjs` passes all **63 reported tests**, including an effects suite with 12 internal checks and a touch suite with 7 internal checks. `python -m unittest discover -s tests -p '*test.py'` passes both server checks. The equivalent Node command is available as `npm test` on a standard Node installation.
 
 - Campaign: five discoveries, all seven missions, all encounters and route gates, guardian phase changes, Grid Executor relays, mission transitions and the final ending.
 - Progress: save serialization/reload, invalid import rejection, checkpoint death recovery, retained discoveries, 30 specialization points, rank limits, refunds and Demo isolation.
@@ -25,9 +25,9 @@ The automated campaign driver is invulnerable, chooses suitable powers and targe
 | The Frostbound Citadel | 1:01 |
 | Cathedral of Cinders | 0:57 |
 | The Shattered Heavens | 0:57 |
-| Total | 7:43 |
+| Total | 7:35 |
 
-Build 0.9 retains the target of **about 15 minutes for all seven missions combined**. Routes are approximately half their previous length, each encounter has one wave, and enemy, gate and guardian health is reduced. All five discoveries, three encounters per world, two-phase guardians, progression and optional shrines remain. Faster movement, group attacks and upgraded specializations bring the automated main route to 7:43; reading, upgrades, exploration and retries add time. This establishes mechanical reachability, not a measured human playthrough. A regression check caps the automated main route at 14 minutes and each mission at three minutes. Existing version-one saves were tested at all 42 world/checkpoint combinations, preserving unlocks, completed encounters, upgrades and historical time while mapping to the new checkpoint positions.
+Build 0.9 retains the target of **about 15 minutes for all seven missions combined**. Routes are approximately half their previous length, each encounter has one wave, and enemy, gate and guardian health is reduced. All five discoveries, three encounters per world, two-phase guardians, progression and optional shrines remain. Faster movement, group attacks and upgraded specializations bring the automated main route to 7:35; reading, upgrades, exploration and retries add time. This establishes mechanical reachability, not a measured human playthrough. A regression check caps the automated main route at 14 minutes and each mission at three minutes. Existing version-one saves were tested at all 42 world/checkpoint combinations, preserving unlocks, completed encounters, upgrades and historical time while mapping to the new checkpoint positions.
 
 Additional progression/sword checks cover all 35 element/tier damage combinations, specialization multipliers, retained tiers after guardian completion and death, unique sword trajectories, combo reset, and 6,000 trail updates with bounded geometry. The effects test checks increasing rendered flame/gust counts and water/earth geometry scale. An isolated in-memory save fixture also exercised the real Continue-to-next-world UI: all five elements changed from Tier 1 / 100% to Tier 2 / 120%, with the new-power screen visible. This fixture did not modify the player's campaign save.
 
@@ -116,3 +116,9 @@ Publication follow-up: the game has now been pushed to [nr-sbe/eq](https://githu
 - Longer camera/targeting edge-case and memory profiling runs.
 - Listening to soundtrack balance, loop seams and the combined effects mix in every setting.
 - Further art, environment variety and animation polish toward the requested modern action-game presentation.
+
+## Build 0.10.2
+
+Six added combat checks cover Tier 1 paralysis and its recovery window, canceled earth windups, temporary protection, boss stagger, burning and chained fire defeats with cover, and water healing limits. Two sample checks validate the licensed WAV hash/format, audio-clock scheduling, bounded tails, mute and voice cleanup. The invulnerable seven-world driver completes in 86, 69, 62, 63, 61, 57 and 57 seconds (7:35); this omits reading, exploration and human reaction time. The 15-minute first-play duration remains a design target.
+
+The revised lightning uses an edited 1.45-second licensed thunder sample. Playback is limited to one impact per 0.7 seconds and two sustained tails, with a 45 ms retirement fade. A procedural fallback covers loading failures. The browser OfflineAudioContext check rendered repeated casts at 44.1 kHz: lightning peak 0.5451/RMS 0.1091; repeated thunder peak 0.5231/RMS 0.1071. All eight effect cases were finite, had zero clipped samples and retired every voice; mute was silent. These are objective rendering checks, not a claim that the mix has been auditioned on physical speakers or a phone. Earlier audio measurements above are historical.

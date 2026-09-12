@@ -5,7 +5,7 @@ from urllib.parse import unquote,urlsplit
 import argparse,mimetypes,socket
 
 ROOT=Path(__file__).resolve().parent
-ALLOWED={'.html','.js','.css','.json','.mp3','.ogg','.oga','.glb','.png','.jpg','.webp','.svg','.ico','.txt','.md'}
+ALLOWED={'.html','.js','.css','.json','.mp3','.wav','.ogg','.oga','.glb','.png','.jpg','.webp','.svg','.ico','.txt','.md'}
 def resolve_asset(raw):
     path=unquote(urlsplit(raw).path)
     if '\\' in path or '\x00' in path:return None

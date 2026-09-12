@@ -78,7 +78,7 @@ Regular casts hit groups from Tier 1: widening air/fire fronts, a broad water la
 
 Air has a **25% critical-hit chance at Tier 1**, increasing by 2.5 percentage points per tier to **40% at Tier 7**. Critical hits deal **2× damage**, stack with elemental weaknesses, and use larger, brighter whole-number damage labels. The simulation controls critical rolls consistently across frame rates.
 
-The action presentation includes slicing air crescents, fire eruptions and flying embers, foam wakes and undertow around the Great Wave, branching thunder strikes, and outward rock fractures. Air uses a quick whoosh; lightning uses a single thunder-clap attack with a low rolling tail, with no electrical impact chatter. The protagonist and regular enemies are 45% larger, guardian scale is increased proportionately, and camera aim, sword reach and target labels accommodate the new proportions.
+The action presentation includes slicing air crescents, fire eruptions and flying embers, foam wakes and undertow around the Great Wave, branching thunder strikes, and outward rock fractures. Air uses a quick whoosh; lightning uses an edited 1.45-second thunder impact with a sharp onset, reinforced bass and a short decay, with no electrical impact chatter. The protagonist and regular enemies are 45% larger, guardian scale is increased proportionately, and camera aim, sword reach and target labels accommodate the new proportions.
 
 Running speed is 13 world units per second (up from 9), with 34-unit-per-second dodges (up from 25). The run animation is accelerated to match; PC and touch use the same movement rules.
 
@@ -118,3 +118,7 @@ npm run build
 - `tests/`: campaign, combat, resource lifecycle and touch regression checks.
 
 The existing Three.js r160 pipeline is vendored locally. The game makes no runtime network requests to third-party services. The deployment build excludes development scripts and test files.
+
+### Elemental roles
+
+Air has 25–40% critical chance and double-damage critical hits. Fire ignites enemies for periodic damage; burning enemies erupt on defeat, damaging and igniting nearby visible foes. Lightning briefly paralyzes regular enemies from Tier 1, with a two-second recovery interval between applications. Water restores 10 health on a water-attributed defeat, capped at 100. Earth interrupts regular enemy windups and gives 0.8 seconds of 40% damage reduction; earth tempests last 1.2 seconds. Bosses build stagger instead of suffering ordinary paralysis or interruption; a full stagger cancels their pending attack.

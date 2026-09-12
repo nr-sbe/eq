@@ -47,3 +47,7 @@ Fivefold's gameplay, UI, story, authored environment builders and procedural tex
 - [Aerial Sand](https://polyhaven.com/a/aerial_sand) — Rob Tuytel.
 
 All four materials are [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Maps are unedited; the game changes tint, tiling, normal strength and lighting. Source URLs and hashes are in `assets/textures/sources.json`. Only the current world's required materials load.
+
+## Lightning impact
+
+`assets/effects/lightning-impact.wav` is an edited excerpt of **Thunder** by **Jerimee**, [OpenGameArt source](https://opengameart.org/content/thunder), licensed [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). The source credits René Nyffenegger’s cSound thunder instrument. Changes: excerpt at 1.505 seconds, mono mix, parallel lower-pitched layer, high/low-pass EQ, transient compression, shortened 1.45-second decay, added sub impact and peak normalization. Hashes and download source are in `assets/effects/sources.json`. This sound is not looped. Runtime allows two overlapping thunder voices with short fades when replacing an older tail.
